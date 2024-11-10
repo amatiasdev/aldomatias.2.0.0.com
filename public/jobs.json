@@ -1,0 +1,74 @@
+[
+    {
+      "title": "Cloud Infrastructure Engineer",
+      "company": "IT Keeper",
+      "companyLogo": "/IT-KEEPER-logo.png", 
+      "period": "March 2024 – Present",
+      "city": "Remote work",
+      "description": [
+        "Designed and implemented an extensive and comprehensive disaster recovery solution for a medium-sized company utilizing AWS cloud services effectively.",
+        "Leveraged EC2 instances running a robust VPN on an Ubuntu server with OpenVPN to ensure secure and reliable remote access for all users.",
+        "Established a Windows Server 2019 instance equipped with critical DNS and Active Directory services for enhanced network management capabilities and improved user access control.",
+        "Configured detailed user policies and organized shared resources within Active Directory to ensure optimal security and efficient resource allocation throughout the organization.",
+        "Owned and managed the entire project lifecycle, from the initial design phase to successful production deployment, ensuring high standards of quality and performance were met."
+      ]
+    },
+    {
+      "title": "Front-End Developer",
+      "company": "BBVA Bank by SNGULAR",
+      "companyLogo": "/bbva-logo.jfif", 
+      "period": "March 2022 – March 2024",
+      "city": "Mexico City, Mexico",
+      "description": [
+        "Led the front-end team in developing and launching a cutting-edge internal application utilizing JavaScript ES6, the Lit-Element Framework, HTML5, CSS3, Git, Bitbucket, MochaJS for comprehensive testing, and Jenkins for efficient CI/CD.",
+        "Streamlined the development process by creating reusable components, which significantly reduced overall development time.",
+        "Thoroughly documented and meticulously maintained API references, ensuring seamless integration and collaboration for internal developers.",
+        "Successfully migrated the legacy system to a modern architecture, marking a significant milestone in the bank's technological evolution.",
+        "Maintained consistent and effective communication with backend developers, UX/UI design experts, the Scrum Master, and the Product Owner teams to ensure alignment and project success."
+      ]
+    },
+    {
+      "title": "Front-End Developer",
+      "company": "AHEA University by Ectotec",
+      "companyLogo": "/AHEA-logo.png", 
+      "period": "March 2021 – March 2022",
+      "city": "Remote work",
+      "description": [
+        "Played a pivotal role in building a new platform from the ground up, managing students, professors, administrators, and more.",
+        "Developed and maintained modules for the InspirED system using React 17 (Hooks), Redux, React Router, and other libraries.",
+        "Amazon Chime Implementation: Developed a scalable, high-quality video conferencing module using WebRTC, integrating with the Amazon Chime platform to provide a user experience similar to Zoom or Teams.",
+        "Reusable Component Development: Created a custom component library to streamline development and maintain a consistent interface.",
+        "Team Collaboration: Worked closely with backend, QA, and design teams, following agile methodologies (SCRUM)."
+      ]
+    },
+    {
+      "title": "Front-End Developer",
+      "company": "Oaxaca State Government Administration Office by iGenter",
+      "companyLogo": "/admon-oaxaca.jpg", 
+      "period": "March 2020 – March 2021",
+      "city": "Remote work",
+      "description": [
+        "Contributed to a front-end team developing a resource management dashboard for the Oaxaca government's administration office.",
+        "Built the dashboard using React 16, Redux, Axios, HTML5, CSS3, SASS, Material UI, Git, GitLab, and Postman.",
+        "Adhered to SCRUM methodology for efficient task management and collaboration.",
+        "Maintained consistent communication with backend, UX/UI design, Scrum Master, and Product Owner teams."
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "Kristal Software House",
+      "companyLogo": "/ksh.png", 
+      "period": "September 2018 – March 2020",
+      "city": "Mexico City, Mexico",
+      "description": [
+        "Developed custom modules for a client using C#, Microsoft SQL Server, and Epicor BAQs as part of a consulting team for Epicor 10 ERP.",
+        "Analyzed client requirements to design and develop custom modules, enhancing functionality within the Epicor 10 ERP system.",
+        "Monitored and analyzed the Java 8-based billing system with a Microsoft SQL Server database, resolving errors and ensuring smooth operation.",
+        "Performed CRUD operations (Create, Read, Update, Delete) on the SQL Server database, managing data integrity.",
+        "Created and modified transactions, views, stored procedures, functions, and triggers within the SQL Server environment.",
+        "Maintained security by monitoring and managing Epicor and SQL Server roles and permissions for both custom modules and existing systems.",
+        "Communicated directly with the client to gather new module requirements and address incidents effectively."
+      ]
+    }
+  ]
+  
