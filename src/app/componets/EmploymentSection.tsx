@@ -39,7 +39,7 @@ export default function EmploymentSection() {
                 and overseeing the project lifecycle to ensure security and performance." 
                 link="it-keeper"
             />
-            <JobCard title="Front-End Developer" company="BBVA Bank" companyLogo="/bbva-logo.jfif"
+            <JobCard title="Front-End Developer" company="BBVA Bank" companyLogo="/bbva-logo.png"
                 description="Led the development of an internal app with JavaScript ES6, Lit-Element, HTML5,
                 and CSS3. Streamlined development with reusable components and maintained API documentation. 
                 Key in migrating the legacy system to modern architecture." 
