@@ -8,15 +8,39 @@ export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setName('');
-    setEmail('');
-    setMessage('');
+  
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, company, email, message }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+  
+      // Restablecer el formulario
+      setName('');
+      setCompany('');
+      setEmail('');
+      setMessage('');
+  
+      // Mensaje de éxito o redirección (opcional)
+      alert('Message sent successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error sending message');
+    }
   };
+  
 
   return (
-    <form onSubmit={handleSubmit} className="bg-secondaryBackground p-6 rounded-lg shadow-md max-w-md mx-auto">
+    <form onSubmit={handleSubmit} id="contact" className="bg-secondaryBackground p-6 rounded-lg shadow-md max-w-md mx-auto">
       <h2 className="text-xl font-semibold mb-4">Contact</h2>
       <div className="mb-4">
         <label htmlFor="name" className="block">Name <span className="text-red-500"> *</span></label>
