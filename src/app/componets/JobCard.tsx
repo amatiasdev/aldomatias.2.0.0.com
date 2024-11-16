@@ -26,7 +26,6 @@ export default function JobCard({
           width={80}
           height={80}
           className="rounded-full"
-          unoptimized
         />
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
           {title} - {company}
