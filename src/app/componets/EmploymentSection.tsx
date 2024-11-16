@@ -37,19 +37,19 @@ export default function EmploymentSection() {
                 description="Designing and implementing disaster recovery solutions using AWS. Responsible 
                 for setting up secure VPNs with EC2, managing Windows Server for DNS and Active Directory, 
                 and overseeing the project lifecycle to ensure security and performance." 
-                link="/experience/it-keeper"
+                link="it-keeper"
             />
             <JobCard title="Front-End Developer" company="BBVA Bank" companyLogo="/bbva-logo.jfif"
                 description="Led the development of an internal app with JavaScript ES6, Lit-Element, HTML5,
                 and CSS3. Streamlined development with reusable components and maintained API documentation. 
                 Key in migrating the legacy system to modern architecture." 
-                link="/experience/bbva"
+                link="bbva"
             />
             <JobCard title="Front-End Developer" company="AHEA University" companyLogo="/AHEA-logo.png"
                 description="Developed a platform for managing students, professors, and administrators using
                 React, Redux, and WebRTC. Created a scalable video conferencing module with Amazon Chime and 
                 a custom component library for efficiency." 
-                link="/experience/ahea" 
+                link="ahea" 
             />
             </div>
             <div className="flex justify-center mt-4">

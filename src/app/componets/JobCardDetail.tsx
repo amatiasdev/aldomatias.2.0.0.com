@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 interface JobCardDetailProps {
+  id: string;
   title: string;
   company: string;
   companyLogo: string; // Logo de la empresa
@@ -10,6 +11,7 @@ interface JobCardDetailProps {
 }
 
 export default function JobCardDetail({
+  id,
   title,
   company,
   companyLogo,
@@ -18,7 +20,7 @@ export default function JobCardDetail({
   description,
 }: JobCardDetailProps) {
   return (
-    <section className="flex flex-col mt-20 p-4 md:flex-row md:justify-around">
+    <section id={id} className="flex flex-col mt-20 p-4 md:flex-row md:justify-around">
         <div className="flex flex-col items-center md:items-start flex-1 basis-1/2 min-h-[300px]">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
             {title} - {company}

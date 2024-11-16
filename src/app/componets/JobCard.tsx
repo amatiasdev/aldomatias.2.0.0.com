@@ -32,7 +32,7 @@ export default function JobCard({
         </h3>
       </div>
       <p>{description}</p>
-      <Link href={link}>
+      <Link href={`/experience#${link}`}>
         <button className="text-blue-500 mt-2">See more</button>
       </Link>
     </div>

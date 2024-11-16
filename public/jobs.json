@@ -1,5 +1,6 @@
 [
     {
+      "id":"it-keeper",
       "title": "Cloud Infrastructure Engineer",
       "company": "IT Keeper",
       "companyLogo": "/IT-KEEPER-logo.png", 
@@ -14,6 +15,7 @@
       ]
     },
     {
+      "id":"bbva",
       "title": "Front-End Developer",
       "company": "BBVA Bank by SNGULAR",
       "companyLogo": "/bbva-logo.jfif", 
@@ -28,6 +30,7 @@
       ]
     },
     {
+      "id":"ahea",
       "title": "Front-End Developer",
       "company": "AHEA University by Ectotec",
       "companyLogo": "/AHEA-logo.png", 
@@ -42,6 +45,7 @@
       ]
     },
     {
+      "id":"oaxaca",
       "title": "Front-End Developer",
       "company": "Oaxaca State Government Administration Office by iGenter",
       "companyLogo": "/admon-oaxaca.jpg", 
@@ -55,6 +59,7 @@
       ]
     },
     {
+      "id":"ksh",
       "title": "Software Developer",
       "company": "Kristal Software House",
       "companyLogo": "/ksh.png", 

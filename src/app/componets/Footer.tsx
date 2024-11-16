@@ -24,7 +24,7 @@ export default function Footer() {
             LeetCode
           </a>
           <a
-            href="https://github.com/aldomatias"
+            href="https://github.com/amatiasdev"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-400"
