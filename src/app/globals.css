@@ -75,3 +75,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.loader {
+  border-width: 2px;
+  border-color: white;
+  border-top-color: transparent;
+}
+.bg-green-500 {
+  background-color: var(--secondary-background);
+}
+
+.bg-red-600 {
+  background-color: var(--dark-secondary-background);
+}

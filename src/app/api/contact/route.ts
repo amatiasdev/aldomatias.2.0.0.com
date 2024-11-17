@@ -15,12 +15,12 @@ export async function POST(request: NextRequest) {
     company,
     email,
     message,
-    ip_address: ip, // Suponiendo que tienes una columna llamada `user_ip` en tu tabla
+    ip_address: ip,
   });
 
   if (error) {
     return NextResponse.json({ error: 'Failed to save message' }, { status: 500 });
   }
-
+  
   return NextResponse.json({ message: 'Message saved successfully' }, { status: 200 });
 }

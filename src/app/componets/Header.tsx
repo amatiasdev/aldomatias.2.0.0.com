@@ -19,6 +19,9 @@ export default function Header() {
     if (savedTheme === "dark") {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
+    } else if (savedTheme === "light") {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
