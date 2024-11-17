@@ -16,6 +16,36 @@ export default function ContactForm() {
   const [notificationMessage, setNotificationMessage] = useState("");
   const [notificationType, setNotificationType] = useState("error");
 
+  const [errorMessageEmail, setErrorMessageEmail] = useState("");
+
+  const blockedDomains = [
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "yahoo.com",
+    "icloud.com",
+    "aol.com",
+    "gmx.com",
+    "mail.com",
+    "protonmail.com",
+    "zoho.com",
+    "yandex.com",
+    "qq.com",
+    "naver.com",
+    "163.com",
+    "126.com",
+    "rediffmail.com",
+  ];
+
+  const handleBlur = () => {
+    const domain = email.split("@")[1];
+    if (domain && blockedDomains.includes(domain)) {
+      setErrorMessageEmail("Please use a business or custom email domain.");
+    } else {
+      setErrorMessageEmail("");
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); 
     setIsSubmitting(true);
@@ -122,10 +152,15 @@ export default function ContactForm() {
                     type="email"
                     id="email"
                     value={email}
+                    onBlur={handleBlur}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full py-2 px-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-gray-900 transition duration-200 hover:border-gray-700"
+                    className={`${errorMessageEmail ? "border-red-500" : "border-gray-300" } w-full py-2 px-3 bg-transparent border-b-2 border-gray-500 focus:outline-none focus:border-gray-900 transition duration-200 hover:border-gray-700"`}
                     required
+                    placeholder="you@example.com"
                   />
+                  {errorMessageEmail && (
+                    <p className="mt-2 text-sm text-red-600">{errorMessageEmail}</p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label htmlFor="message" className="block">Message <span className="text-red-500"> *</span></label>
