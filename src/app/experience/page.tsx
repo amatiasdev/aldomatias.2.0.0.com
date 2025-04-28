@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import React, { Fragment, useEffect, useState } from 'react';
-import JobCardDetail from '../componets/JobCardDetail';
+import JobCardDetail from '../components/JobCardDetail';
 
 interface Job {
   id: string;

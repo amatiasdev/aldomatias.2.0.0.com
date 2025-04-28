@@ -4,7 +4,7 @@ import React, {Fragment} from 'react';
 import JobCard from './JobCard';
 import Link from 'next/link';
 export default function EmploymentSection() {
-
+    
   return (
     <Fragment>
         <section className="flex flex-col items-center mt-20 p-4 md:flex-row md:justify-around">
