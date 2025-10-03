@@ -1,79 +1,96 @@
 [
-    {
-      "id":"it-keeper",
-      "title": "Cloud Infrastructure Engineer",
-      "company": "IT Keeper",
-      "companyLogo": "/IT-KEEPER-logo.png", 
-      "period": "March 2024 – Present",
-      "city": "Remote work",
+  {
+    "id": "it-keeper",
+    "title": "Cloud Infrastructure Engineer",
+    "company": "IT-KEEPER",
+    "companyLogo": "/IT-KEEPER-logo.png",
+    "period": "March 2024 – Present",
+    "city": "Remote, Mexico",
+    "description": [
+      "Designed and implemented a comprehensive disaster recovery solution for a medium-sized company using AWS services.",
+      "Configured EC2 instances running VPN on Ubuntu with OpenVPN for secure remote access.",
+      "Deployed Windows Server 2019 with DNS and Active Directory for centralized network management and user access control.",
+      "Defined user policies and shared resources within Active Directory to strengthen security and resource allocation.",
+      "Owned the entire project lifecycle from architecture design to production deployment.",
+      "Conducted cybersecurity audits across multiple clients, identifying and remediating security breaches."
+    ],
+    "technologies": ["AWS", "EC2", "Ubuntu", "OpenVPN", "Windows Server 2019", "Active Directory", "DNS", "Node.js", "Express", "MongoDB", "React", "Docker", "Socket.io", "JWT", "n8n"],
+    "leadership": false,
+    "highlightedProject": {
+      "title": "WhatsApp Multi-Session Management Platform",
       "description": [
-        "Designed and implemented an extensive and comprehensive disaster recovery solution for a medium-sized company utilizing AWS cloud services effectively.",
-        "Leveraged EC2 instances running a robust VPN on an Ubuntu server with OpenVPN to ensure secure and reliable remote access for all users.",
-        "Established a Windows Server 2019 instance equipped with critical DNS and Active Directory services for enhanced network management capabilities and improved user access control.",
-        "Configured detailed user policies and organized shared resources within Active Directory to ensure optimal security and efficient resource allocation throughout the organization.",
-        "Owned and managed the entire project lifecycle, from the initial design phase to successful production deployment, ensuring high standards of quality and performance were met."
-      ]
-    },
-    {
-      "id":"bbva",
-      "title": "Front-End Developer",
-      "company": "BBVA Bank by SNGULAR",
-      "companyLogo": "/bbva-logo.png", 
-      "period": "March 2022 – March 2024",
-      "city": "Mexico City, Mexico",
-      "description": [
-        "Led the front-end team in developing and launching a cutting-edge internal application utilizing JavaScript ES6, the Lit-Element Framework, HTML5, CSS3, Git, Bitbucket, MochaJS for comprehensive testing, and Jenkins for efficient CI/CD.",
-        "Streamlined the development process by creating reusable components, which significantly reduced overall development time.",
-        "Thoroughly documented and meticulously maintained API references, ensuring seamless integration and collaboration for internal developers.",
-        "Successfully migrated the legacy system to a modern architecture, marking a significant milestone in the bank's technological evolution.",
-        "Maintained consistent and effective communication with backend developers, UX/UI design experts, the Scrum Master, and the Product Owner teams to ensure alignment and project success."
-      ]
-    },
-    {
-      "id":"ahea",
-      "title": "Front-End Developer",
-      "company": "AHEA University by Ectotec",
-      "companyLogo": "/AHEA-logo.png", 
-      "period": "March 2021 – March 2022",
-      "city": "Remote work",
-      "description": [
-        "Played a pivotal role in building a new platform from the ground up, managing students, professors, administrators, and more.",
-        "Developed and maintained modules for the InspirED system using React 17 (Hooks), Redux, React Router, and other libraries.",
-        "Amazon Chime Implementation: Developed a scalable, high-quality video conferencing module using WebRTC, integrating with the Amazon Chime platform to provide a user experience similar to Zoom or Teams.",
-        "Reusable Component Development: Created a custom component library to streamline development and maintain a consistent interface.",
-        "Team Collaboration: Worked closely with backend, QA, and design teams, following agile methodologies (SCRUM)."
-      ]
-    },
-    {
-      "id":"oaxaca",
-      "title": "Front-End Developer",
-      "company": "Oaxaca State Government Administration Office by iGenter",
-      "companyLogo": "/admon-oaxaca.jpg", 
-      "period": "March 2020 – March 2021",
-      "city": "Remote work",
-      "description": [
-        "Contributed to a front-end team developing a resource management dashboard for the Oaxaca government's administration office.",
-        "Built the dashboard using React 16, Redux, Axios, HTML5, CSS3, SASS, Material UI, Git, GitLab, and Postman.",
-        "Adhered to SCRUM methodology for efficient task management and collaboration.",
-        "Maintained consistent communication with backend, UX/UI design, Scrum Master, and Product Owner teams."
-      ]
-    },
-    {
-      "id":"ksh",
-      "title": "Software Developer",
-      "company": "Kristal Software House",
-      "companyLogo": "/ksh.png", 
-      "period": "September 2018 – March 2020",
-      "city": "Mexico City, Mexico",
-      "description": [
-        "Developed custom modules for a client using C#, Microsoft SQL Server, and Epicor BAQs as part of a consulting team for Epicor 10 ERP.",
-        "Analyzed client requirements to design and develop custom modules, enhancing functionality within the Epicor 10 ERP system.",
-        "Monitored and analyzed the Java 8-based billing system with a Microsoft SQL Server database, resolving errors and ensuring smooth operation.",
-        "Performed CRUD operations (Create, Read, Update, Delete) on the SQL Server database, managing data integrity.",
-        "Created and modified transactions, views, stored procedures, functions, and triggers within the SQL Server environment.",
-        "Maintained security by monitoring and managing Epicor and SQL Server roles and permissions for both custom modules and existing systems.",
-        "Communicated directly with the client to gather new module requirements and address incidents effectively."
-      ]
+        "Architected and developed a full-stack, microservices-based platform enabling real-time monitoring, automated message processing, and conversational analytics via n8n integrations.",
+        "Designed a 3-service microservices architecture (Node.js, Express, MongoDB, React, Docker) supporting 30+ concurrent WhatsApp sessions with Socket.io for real-time communication.",
+        "Implemented multi-layer security including JWT rotation, sanitization, rate limiting, and OWASP best practices.",
+        "Developed a modular React frontend with 40+ reusable components and optimized session handling UI.",
+        "Delivered a production-ready platform with health monitoring, structured logging, CI/CD pipelines, and Docker Compose orchestration."
+      ],
+      "technologies": ["Node.js", "Express", "MongoDB", "React", "Docker", "Socket.io", "JWT", "n8n", "OWASP"]
     }
-  ]
-  
+  },
+  {
+    "id": "bbva",
+    "title": "Front-End Developer",
+    "company": "BBVA Bank",
+    "companyLogo": "/bbva-logo.png",
+    "period": "March 2022 – March 2024",
+    "city": "Mexico City, Mexico",
+    "description": [
+      "Led the front-end team in developing and launching a new internal application using JavaScript ES6, Lit-Element, HTML5, CSS3, Git, MochaJS, Bitbucket, and Jenkins for CI/CD.",
+      "Streamlined development by building reusable components, significantly reducing development time.",
+      "Documented and maintained API references, ensuring seamless integration for internal developers.",
+      "Migrated legacy systems to modern architectures, achieving a key modernization milestone.",
+      "Collaborated closely with backend, UX/UI, Scrum Masters, and Product Owners to ensure high-quality delivery.",
+      "Led and mentored a team of front-end developers, prioritizing tasks to ensure timely delivery and quality (March 2023 – March 2024).",
+      "Provided technical guidance and onboarding for new team members, improving team performance and integration."
+    ],
+    "technologies": ["JavaScript ES6", "Lit-Element", "HTML5", "CSS3", "Git", "MochaJS", "Bitbucket", "Jenkins", "CI/CD"],
+    "leadership": true
+  },
+  {
+    "id": "ahea",
+    "title": "Front-End Developer",
+    "company": "AHEA University by Ectotec",
+    "companyLogo": "/AHEA-logo.png",
+    "period": "March 2021 – March 2022",
+    "city": "Remote, Mexico",
+    "description": [
+      "Co-built a new educational platform from the ground up for students, professors, and administrators.",
+      "Developed modules using React 17 (Hooks), Redux, and React Router.",
+      "Built a scalable, high-quality video conferencing module using WebRTC and Amazon Chime, providing a Zoom-like experience.",
+      "Created a reusable component library to accelerate development and maintain a consistent UI.",
+      "Collaborated with QA, backend, and design teams using Agile SCRUM methodology."
+    ],
+    "technologies": ["React 17", "Hooks", "Redux", "React Router", "WebRTC", "Amazon Chime", "Agile", "SCRUM"]
+  },
+  {
+    "id": "oaxaca",
+    "title": "Front-End Developer",
+    "company": "Oaxaca State Government Administration Office by iGenter",
+    "companyLogo": "/admon-oaxaca.jpg",
+    "period": "March 2020 – March 2021",
+    "city": "Remote, Mexico",
+    "description": [
+      "Contributed to the development of a resource management dashboard for the Oaxaca government administration.",
+      "Built the front end using React 16, Redux, Axios, SASS, Material UI, and GitLab.",
+      "Worked under Scrum methodology, coordinating with backend and design teams to deliver functional interfaces."
+    ],
+    "technologies": ["React 16", "Redux", "Axios", "HTML5", "CSS3", "SASS", "Material UI", "Git", "GitLab", "Postman"]
+  },
+  {
+    "id": "ksh",
+    "title": "Software Developer",
+    "company": "Kristal Software House",
+    "companyLogo": "/ksh.png",
+    "period": "September 2019 – March 2020",
+    "city": "Mexico City, Mexico",
+    "description": [
+      "Developed custom modules for Epicor 10 ERP using C#, SQL Server, and Epicor BAQs.",
+      "Designed stored procedures, views, triggers, and functions to maintain data integrity and improve performance.",
+      "Monitored and debugged a Java 8-based billing system integrated with SQL Server.",
+      "Managed roles and permissions for Epicor and SQL Server environments.",
+      "Communicated directly with clients to gather requirements and address incidents efficiently."
+    ],
+    "technologies": ["C#", "SQL Server", "Epicor 10 ERP", "Epicor BAQs", "Java 8", "Stored Procedures", "Triggers", "Functions"]
+  }
+]
