@@ -2,11 +2,17 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { useCVModal } from '@/contexts/CVModalContext';
 import Overlay from '@/app/components/atoms/Overlay';
 import ModalHeader from '@/app/components/molecules/ModalHeader';
-import PDFViewer from '@/app/components/molecules/PDFViewer';
 import PDFControls from '@/app/components/molecules/PDFControls';
+
+// Dynamic import to avoid SSR issues with pdfjs
+const PDFViewer = dynamic(
+  () => import('@/app/components/molecules/PDFViewer'),
+  { ssr: false }
+);
 
 const CV_FILE_PATH = '/aldo matias cv.pdf';
 

@@ -137,7 +137,7 @@ export interface SectionProps {
 }
 
 // AnimatedSection types
-export type AnimationType = 'fadeIn' | 'fadeInUp' | 'slideUp' | 'slideLeft' | 'slideRight' | 'scaleIn';
+export type AnimationType = 'fadeIn' | 'fadeInUp' | 'slideLeft' | 'slideRight' | 'scaleIn';
 
 export interface AnimatedSectionProps {
   children: ReactNode;
@@ -149,7 +149,7 @@ export interface AnimatedSectionProps {
 }
 
 // Contact Form types
-export interface ContactFormData {
+export interface ContactFormData extends Record<string, unknown> {
   name: string;
   email: string;
   company?: string;

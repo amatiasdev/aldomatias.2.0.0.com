@@ -1,12 +1,16 @@
 "use client";
 
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 
-interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps {
   icon: ReactNode;
   label: string; // For accessibility
   variant?: 'primary' | 'secondary' | 'ghost';
+  className?: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function IconButton({
@@ -14,7 +18,9 @@ export default function IconButton({
   label,
   variant = 'ghost',
   className = '',
-  ...props
+  onClick,
+  disabled,
+  type = 'button',
 }: IconButtonProps) {
   const baseStyles = "p-3 rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
@@ -30,7 +36,9 @@ export default function IconButton({
       whileTap={{ scale: 0.95 }}
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       aria-label={label}
-      {...props}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
     >
       {icon}
     </motion.button>

@@ -10,7 +10,7 @@ const FOCUSABLE_ELEMENTS = [
 ];
 
 export function useFocusTrap(
-  containerRef: RefObject<HTMLElement>,
+  containerRef: RefObject<HTMLElement | null>,
   isActive: boolean = true
 ) {
   useEffect(() => {

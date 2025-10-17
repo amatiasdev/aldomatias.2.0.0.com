@@ -130,9 +130,9 @@ export async function POST(request: NextRequest) {
       validatedData = ContactSchema.parse(body);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const firstError = error.errors[0];
+        const firstIssue = error.issues[0];
         return NextResponse.json(
-          { error: firstError?.message || 'Validation failed' },
+          { error: firstIssue?.message || 'Validation failed' },
           { status: 400 }
         );
       }

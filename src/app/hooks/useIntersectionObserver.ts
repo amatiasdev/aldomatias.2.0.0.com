@@ -10,7 +10,7 @@ interface UseIntersectionObserverProps {
 }
 
 export function useIntersectionObserver(
-  ref: RefObject<Element>,
+  ref: RefObject<Element | null>,
   {
     threshold = 0.1,
     root = null,

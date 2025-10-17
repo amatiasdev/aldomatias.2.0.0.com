@@ -24,60 +24,114 @@ export const duration = {
 // Fade in animations
 export const fadeIn: Variants = {
   initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: duration.moderate },
+  animate: {
+    opacity: 1,
+    transition: { duration: duration.moderate }
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: duration.moderate }
+  },
 };
 
 export const fadeInUp: Variants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 20 },
-  transition: { duration: duration.moderate, ease: easing.default },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
 };
 
 export const fadeInDown: Variants = {
   initial: { opacity: 0, y: -20 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 },
-  transition: { duration: duration.moderate, ease: easing.default },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
 };
 
 // Slide animations
 export const slideIn: Variants = {
   initial: { opacity: 0, x: -30 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -30 },
-  transition: { duration: duration.base, ease: easing.default },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: duration.base, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    x: -30,
+    transition: { duration: duration.base, ease: easing.default }
+  },
 };
 
 export const slideInLeft: Variants = {
   initial: { opacity: 0, x: -40 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -40 },
-  transition: { duration: duration.moderate, ease: easing.default },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    x: -40,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
 };
 
 export const slideInRight: Variants = {
   initial: { opacity: 0, x: 40 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: 40 },
-  transition: { duration: duration.moderate, ease: easing.default },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    x: 40,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
 };
 
 export const slideInUp: Variants = {
   initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 40 },
-  transition: { duration: duration.moderate, ease: easing.default },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
+  exit: {
+    opacity: 0,
+    y: 40,
+    transition: { duration: duration.moderate, ease: easing.default }
+  },
 };
 
 // Scale animations
 export const scaleIn: Variants = {
   initial: { opacity: 0, scale: 0.9 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.9 },
-  transition: { duration: duration.moderate, ease: easing.bounce },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: duration.moderate, ease: easing.bounce }
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.9,
+    transition: { duration: duration.moderate, ease: easing.bounce }
+  },
 };
 
 export const scaleOnHover = {
@@ -124,8 +178,10 @@ export const cardHover = {
 // Link underline animation
 export const linkUnderline: Variants = {
   initial: { width: '0%' },
-  animate: { width: '100%' },
-  transition: { duration: duration.base, ease: easing.default },
+  animate: {
+    width: '100%',
+    transition: { duration: duration.base, ease: easing.default }
+  },
 };
 
 // Mobile menu animations

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Typography from '@/app/components/atoms/Typography';
 import Badge from '@/app/components/atoms/Badge';
 import StatCard from '@/app/components/molecules/StatCard';
-import { Job } from '@/app/hooks/useJobs';
+import { Job } from '@/app/types/domain';
 import { cardHover } from '@/app/constants/animations';
 
 interface JobCardProps {
@@ -64,23 +64,39 @@ export default function JobCard({ job }: JobCardProps) {
 
       {job.highlightedProject && (
         <div className="mt-8 mb-6 p-6 bg-bg-tertiary border-2 border-accent-500/30 rounded-sm">
-          <Typography as="h4" variant="h5" className="mb-4">
+          <Typography as="h4" variant="h4" className="mb-6">
             <span className="text-accent-500 font-bold">Highlighted Project: </span>
             <span className="text-fg-primary">{job.highlightedProject.title}</span>
           </Typography>
 
-          <ul className="space-y-3 mb-6">
-            {job.highlightedProject.description.map((item, index) => (
-              <li key={index} className="text-fg-secondary leading-relaxed flex items-start gap-3">
-                <span className="text-accent-500 mt-1">✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col md:flex-row gap-6 mb-6 items-stretch">
+            {/* Left column: Description */}
+            <ul className="space-y-3 flex-1">
+              {job.highlightedProject.description.map((item, index) => (
+                <li key={index} className="text-fg-secondary leading-relaxed flex items-start gap-3">
+                  <span className="text-accent-500 mt-1">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Right column: Screenshot */}
+            {job.highlightedProject.screenshot && (
+              <div className="overflow-hidden rounded-sm border border-border-default h-full flex-shrink-0">
+                <Image
+                  src={job.highlightedProject.screenshot}
+                  alt={`${job.highlightedProject.title} - Platform screenshot showing main interface`}
+                  width={1200}
+                  height={800}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            )}
+          </div>
 
           <div className="flex flex-wrap gap-2">
             {job.highlightedProject.technologies.map((tech, index) => (
-              <Badge key={index} variant="primary" size="sm">
+              <Badge key={index} variant="accent" size="sm">
                 {tech}
               </Badge>
             ))}

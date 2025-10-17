@@ -1,6 +1,7 @@
-"use client";
-
+"use client";;
 import { IconProps } from '@/app/types/components';
+
+import type { JSX } from "react";
 
 // Simple icon component - can be extended with icon library later
 export default function Icon({

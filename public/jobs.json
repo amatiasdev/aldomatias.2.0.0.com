@@ -25,7 +25,8 @@
         "Developed a modular React frontend with 40+ reusable components and optimized session handling UI.",
         "Delivered a production-ready platform with health monitoring, structured logging, CI/CD pipelines, and Docker Compose orchestration."
       ],
-      "technologies": ["Node.js", "Express", "MongoDB", "React", "Docker", "Socket.io", "JWT", "n8n", "OWASP"]
+      "technologies": ["Node.js", "Express", "MongoDB", "React", "Docker", "Socket.io", "JWT", "n8n", "OWASP"],
+      "screenshot": "/whatsappsummary.png"
     }
   },
   {

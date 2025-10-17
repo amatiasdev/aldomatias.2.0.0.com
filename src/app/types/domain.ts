@@ -22,6 +22,7 @@ export interface Job {
     title: string;
     description: string[];
     technologies: string[];
+    screenshot?: string;
   };
 }
 

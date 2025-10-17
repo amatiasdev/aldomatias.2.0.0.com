@@ -10,7 +10,7 @@ interface NavMenuItem {
 }
 
 interface NavMenuProps {
-  items: NavMenuItem[];
+  items?: NavMenuItem[];
   onItemClick?: () => void;
   className?: string;
 }

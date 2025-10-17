@@ -25,24 +25,27 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
 
   // Memoize validation schema to prevent re-creation on every render
   const validationSchema = useMemo(() => ({
-    name: (value: string) => {
-      if (!value.trim()) return 'Name is required';
+    name: (value: unknown) => {
+      const strValue = value as string;
+      if (!strValue.trim()) return 'Name is required';
       return undefined;
     },
-    email: (value: string) => {
-      if (!value.trim()) return 'Email is required';
+    email: (value: unknown) => {
+      const strValue = value as string;
+      if (!strValue.trim()) return 'Email is required';
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) return 'Invalid email format';
+      if (!emailRegex.test(strValue)) return 'Invalid email format';
 
       // Business email validation using shared constants
-      if (isPersonalEmail(value)) {
+      if (isPersonalEmail(strValue)) {
         return 'Please use a business email address';
       }
       return undefined;
     },
-    message: (value: string) => {
-      if (!value.trim()) return 'Message is required';
-      if (value.trim().length < 10) return 'Message must be at least 10 characters';
+    message: (value: unknown) => {
+      const strValue = value as string;
+      if (!strValue.trim()) return 'Message is required';
+      if (strValue.trim().length < 10) return 'Message must be at least 10 characters';
       return undefined;
     },
   }), []);
