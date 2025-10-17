@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Providers } from "./providers";
+import { themeScript } from "@/lib/theme-script";
+import { CVModalProvider } from "@/contexts/CVModalContext";
+import CVModal from "./components/organisms/CVModal";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,15 +29,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen transition-colors duration-200`}
       >
-        <Header/>
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <Providers>
+          <CVModalProvider>
+            <Header/>
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <CVModal />
+          </CVModalProvider>
+        </Providers>
       </body>
     </html>
   );

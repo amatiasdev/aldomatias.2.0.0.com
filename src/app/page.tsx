@@ -1,22 +1,17 @@
-
 "use client";
-import { Fragment, useEffect } from 'react';
-import ContactForm from '@/app/components/ContactForm';
-import EmploymentSection from './components/EmploymentSection';
+
+import HeroSection from '@/app/components/sections/HeroSection';
+import ExperienceSection from '@/app/components/sections/ExperienceSection';
+import SkillsSection from '@/app/components/sections/SkillsSection';
+import ContactSection from '@/app/components/sections/ContactSection';
 
 export default function HomePage() {
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
-
-  
   return (
-    <Fragment>
-      <EmploymentSection/>
-      <section className="p-8">
-        <ContactForm />
-      </section>
-    </Fragment>
+    <main className="min-h-screen">
+      <HeroSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ContactSection />
+    </main>
   );
 }

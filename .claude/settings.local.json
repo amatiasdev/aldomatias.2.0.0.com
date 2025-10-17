@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__take_screenshot",
+      "Read(//tmp/chrome-devtools-mcp-Hk1SJ6/**)",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__sequential-thinking__sequentialthinking",
+      "mcp__chrome-devtools__new_page",
+      "Bash(npm run lint)",
+      "Bash(if [ -d \"C:\\Users\\PC2\\Documents\\aldomatias.2.0.0.com\\src\\app\\components\\molecules\\NavItem\" ])",
+      "Bash(then rmdir \"C:\\Users\\PC2\\Documents\\aldomatias.2.0.0.com\\src\\app\\components\\molecules\\NavItem\")",
+      "Bash(fi)",
+      "Bash(if [ -d \"C:\\Users\\PC2\\Documents\\aldomatias.2.0.0.com\\src\\app\\components\\molecules\\SkillCard\" ])",
+      "Bash(then rmdir \"C:\\Users\\PC2\\Documents\\aldomatias.2.0.0.com\\src\\app\\components\\molecules\\SkillCard\")",
+      "Bash(git log:*)",
+      "Bash(cat:*)",
+      "Read(//c/**)",
+      "Bash(npm install:*)",
+      "mcp__chrome-devtools__fill",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__list_network_requests",
+      "mcp__chrome-devtools__wait_for",
+      "mcp__chrome-devtools__get_network_request",
+      "mcp__chrome-devtools__fill_form",
+      "Bash(copy:*)",
+      "Bash(npm view:*)",
+      "Bash(npm outdated)",
+      "Bash(npm ls:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(git checkout:*)",
+      "Bash(npx:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm outdated:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
