@@ -160,9 +160,6 @@ html.transitioning *:after {
 .navbar {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-.h-full{
-  height: 100vh;
-}
 html {
   scroll-behavior: smooth;
 }
@@ -178,4 +175,14 @@ html {
 
 .bg-red-600 {
   background-color: var(--dark-secondary-background);
+}
+
+/* Hide scrollbar but maintain functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

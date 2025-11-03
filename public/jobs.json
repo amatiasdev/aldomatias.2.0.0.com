@@ -26,7 +26,11 @@
         "Delivered a production-ready platform with health monitoring, structured logging, CI/CD pipelines, and Docker Compose orchestration."
       ],
       "technologies": ["Node.js", "Express", "MongoDB", "React", "Docker", "Socket.io", "JWT", "n8n", "OWASP"],
-      "screenshot": "/whatsappsummary.png"
+      "screenshots": [
+        "/whatsappsummary-login.png",
+        "/whatsappsummary-dashboard.png",
+        "/whatsappsummary-preferences.png"
+      ]
     }
   },
   {

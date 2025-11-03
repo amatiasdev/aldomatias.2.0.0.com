@@ -21,19 +21,10 @@ const DEFAULT_ZOOM_INDEX = 2; // 1.0 scale
 
 export default function CVModal() {
   const { isOpen, closeModal } = useCVModal();
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [zoomIndex, setZoomIndex] = useState(DEFAULT_ZOOM_INDEX);
 
   // Handler functions
-  const handlePreviousPage = useCallback(() => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
-  }, []);
-
-  const handleNextPage = useCallback(() => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  }, [totalPages]);
-
   const handleZoomIn = useCallback(() => {
     setZoomIndex((prev) => Math.min(prev + 1, ZOOM_LEVELS.length - 1));
   }, []);
@@ -45,7 +36,6 @@ export default function CVModal() {
   // Reset state when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setCurrentPage(1);
       setZoomIndex(DEFAULT_ZOOM_INDEX);
     }
   }, [isOpen]);
@@ -59,12 +49,6 @@ export default function CVModal() {
         case 'Escape':
           closeModal();
           break;
-        case 'ArrowLeft':
-          handlePreviousPage();
-          break;
-        case 'ArrowRight':
-          handleNextPage();
-          break;
         case '+':
         case '=':
           handleZoomIn();
@@ -77,7 +61,7 @@ export default function CVModal() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, closeModal, handlePreviousPage, handleNextPage, handleZoomIn, handleZoomOut]);
+  }, [isOpen, closeModal, handleZoomIn, handleZoomOut]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -128,22 +112,17 @@ export default function CVModal() {
             />
 
             <p id="cv-modal-desc" className="sr-only">
-              PDF preview with download option. Use arrow keys to navigate pages, +/- to zoom, and Escape to close.
+              PDF preview with download option. Use +/- to zoom, and Escape to close.
             </p>
 
             <PDFViewer
               fileUrl={CV_FILE_PATH}
-              currentPage={currentPage}
               scale={ZOOM_LEVELS[zoomIndex]}
               onLoadSuccess={handleLoadSuccess}
             />
 
             {totalPages > 0 && (
               <PDFControls
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPreviousPage={handlePreviousPage}
-                onNextPage={handleNextPage}
                 onZoomIn={handleZoomIn}
                 onZoomOut={handleZoomOut}
                 canZoomIn={zoomIndex < ZOOM_LEVELS.length - 1}

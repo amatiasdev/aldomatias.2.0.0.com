@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Typography from '@/app/components/atoms/Typography';
 import Badge from '@/app/components/atoms/Badge';
 import StatCard from '@/app/components/molecules/StatCard';
+import ImageGalleryPreview from '@/app/components/molecules/ImageGalleryPreview';
 import { Job } from '@/app/types/domain';
 import { cardHover } from '@/app/constants/animations';
 
@@ -80,16 +81,10 @@ export default function JobCard({ job }: JobCardProps) {
               ))}
             </ul>
 
-            {/* Right column: Screenshot */}
-            {job.highlightedProject.screenshot && (
-              <div className="overflow-hidden rounded-sm border border-border-default h-full flex-shrink-0">
-                <Image
-                  src={job.highlightedProject.screenshot}
-                  alt={`${job.highlightedProject.title} - Platform screenshot showing main interface`}
-                  width={1200}
-                  height={800}
-                  className="h-full w-auto object-contain"
-                />
+            {/* Right column: Image Gallery */}
+            {job.highlightedProject.screenshots && job.highlightedProject.screenshots.length > 0 && (
+              <div className="flex-shrink-0 md:w-1/2">
+                <ImageGalleryPreview images={job.highlightedProject.screenshots} />
               </div>
             )}
           </div>
