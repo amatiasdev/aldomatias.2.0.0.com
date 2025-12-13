@@ -38,7 +38,7 @@ export default function EnhancedFooter({
   return (
     <footer className={`bg-bg-primary border-t border-border-subtle ${className}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Quick Links */}
           <FooterColumn
             title="Quick Links"

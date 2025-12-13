@@ -30,7 +30,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <motion.div
-      className="min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center text-center px-6 -mt-16 sm:-mt-20 relative overflow-hidden"
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -51,19 +51,18 @@ export default function Hero({
 
       <div className="max-w-7xl relative z-10">
         <motion.div variants={fadeInUp}>
-          <Typography
-            as="h1"
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
+          <h1
+            className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6 sm:mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
           >
             {title}
-          </Typography>
+          </h1>
         </motion.div>
 
         {subtitle && (
           <motion.div variants={fadeInUp}>
             <Typography
               as="h2"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent-500 mb-10 tracking-tight uppercase"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-accent-500 mb-8 sm:mb-10 tracking-tight uppercase"
             >
               {subtitle}
             </Typography>
@@ -91,7 +90,7 @@ export default function Hero({
                   size="lg"
                   href={ctaPrimary.href}
                   onClick={ctaPrimary.onClick}
-                  className="text-lg px-12 py-5 shadow-accent-lg hover:shadow-accent font-bold"
+                  className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5 shadow-accent-lg hover:shadow-accent font-bold"
                 >
                   {ctaPrimary.label}
                 </Button>
@@ -107,7 +106,7 @@ export default function Hero({
                   size="lg"
                   href={ctaSecondary.href}
                   onClick={ctaSecondary.onClick}
-                  className="text-lg px-12 py-5 font-bold"
+                  className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5 font-bold"
                 >
                   {ctaSecondary.label}
                 </Button>

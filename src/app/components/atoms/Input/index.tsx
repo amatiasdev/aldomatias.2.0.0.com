@@ -16,7 +16,7 @@ export default function Input({
   id,
   rows = 4,
 }: InputProps) {
-  const baseStyles = 'w-full px-4 py-3 bg-transparent border-b-2 text-fg-primary placeholder-fg-quaternary transition-all duration-300 focus:outline-none';
+  const baseStyles = 'w-full px-4 py-3 bg-white/5 border-b-2 text-fg-primary placeholder-fg-quaternary transition-all duration-300 focus:outline-none';
   const borderStyles = error
     ? 'border-red-500 focus:border-red-500'
     : 'border-border-strong focus:border-accent-500';

@@ -218,7 +218,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           onChange: handleChange('message'),
           onBlur: handleBlur('message'),
           required: true,
-          rows: 6,
+          rows: 4,
         }}
         errorMessage={touched.message ? errors.message : undefined}
         showError={!!touched.message}

@@ -26,12 +26,12 @@ export default function SkillsSection() {
   return (
     <SectionWrapper background="warm" padding="xl" id="skills">
       <AnimatedSection animation="fadeInUp">
-        <Typography as="h2" variant="h2" className="text-center mb-16 text-5xl md:text-6xl font-black tracking-tight">
+        <Typography as="h2" variant="h2" className="text-center mb-10 sm:mb-12 md:mb-16 text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">
           TECHNICAL EXPERTISE
         </Typography>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {Object.entries(skills).map(([category, techs], categoryIndex) => (
           <AnimatedSection
             key={category}

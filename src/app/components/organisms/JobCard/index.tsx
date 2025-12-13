@@ -17,7 +17,7 @@ interface JobCardProps {
 export default function JobCard({ job }: JobCardProps) {
   return (
     <motion.div
-      className="bg-bg-secondary border-2 border-border-default p-6 md:p-8 transition-all duration-300 hover:border-accent-500"
+      className="bg-white dark:bg-black border-2 border-border-default p-6 md:p-8 transition-all duration-300 hover:border-accent-500"
       {...cardHover}
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
@@ -34,7 +34,7 @@ export default function JobCard({ job }: JobCardProps) {
         </div>
 
         {job.companyLogo && (
-          <div className="w-16 h-16 md:w-20 md:h-20 bg-bg-elevated rounded-lg p-2 flex items-center justify-center">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg p-2 flex items-center justify-center">
             <Image
               src={job.companyLogo}
               alt={`${job.company} logo`}
@@ -64,7 +64,7 @@ export default function JobCard({ job }: JobCardProps) {
       </ul>
 
       {job.highlightedProject && (
-        <div className="mt-8 mb-6 p-6 bg-bg-tertiary border-2 border-accent-500/30 rounded-sm">
+        <div className="mt-8 mb-6 p-6 bg-gray-100 dark:bg-black border-2 border-accent-500/30 rounded-sm">
           <Typography as="h4" variant="h4" className="mb-6">
             <span className="text-accent-500 font-bold">Highlighted Project: </span>
             <span className="text-fg-primary">{job.highlightedProject.title}</span>
