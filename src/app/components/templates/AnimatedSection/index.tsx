@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
 import { AnimatedSectionProps } from '@/app/types/components';
 import { fadeInUp, slideInLeft, slideInRight, scaleIn, fadeIn } from '@/app/constants/animations';
@@ -30,10 +30,20 @@ export default function AnimatedSection({
 
   const selectedAnimation = animations[animation] || fadeInUp;
 
-  // Check for reduced motion preference
-  const prefersReducedMotion = respectReducedMotion &&
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Check for reduced motion preference (client-side only to avoid hydration mismatch)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (respectReducedMotion) {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      setPrefersReducedMotion(mq.matches);
+
+      // Listen for changes
+      const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+      mq.addEventListener('change', handler);
+      return () => mq.removeEventListener('change', handler);
+    }
+  }, [respectReducedMotion]);
 
   if (prefersReducedMotion) {
     return <div ref={ref}>{children}</div>;
