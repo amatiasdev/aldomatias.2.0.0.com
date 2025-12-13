@@ -12,21 +12,21 @@ export default function SectionWrapper({
 }: SectionProps) {
   const backgrounds = {
     white: 'bg-white',
-    dark: 'bg-bg-primary',
-    darker: 'bg-bg-secondary',
-    darkest: 'bg-bg-primary',
-    charcoal: 'bg-bg-secondary',
-    slate: 'bg-bg-tertiary',
-    warm: 'bg-bg-warm', // Theme-aware warm tones
-    gradient: 'bg-gradient-to-br from-bg-primary via-bg-secondary to-bg-primary',
-    gradientWarm: 'bg-gradient-to-br from-bg-secondary via-bg-warm to-bg-secondary',
+    dark: 'bg-black',
+    darker: 'bg-black',
+    darkest: 'bg-black',
+    charcoal: 'bg-black',
+    slate: 'bg-black',
+    warm: 'bg-black',
+    gradient: 'bg-black',
+    gradientWarm: 'bg-black',
   };
 
   const paddings = {
-    sm: 'py-12 md:py-16',
-    md: 'py-16 md:py-24',
-    lg: 'py-20 md:py-32',
-    xl: 'py-24 md:py-40',
+    sm: 'py-8 md:py-12',
+    md: 'py-12 md:py-16',
+    lg: 'py-12 md:py-16',
+    xl: 'py-12 md:py-16',
   };
 
   const containerClass = fullWidth
