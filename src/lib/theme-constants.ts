@@ -7,7 +7,7 @@ export const THEMES = ['light', 'dark', 'system'] as const;
 export type Theme = typeof THEMES[number];
 export type ResolvedTheme = 'light' | 'dark';
 
-export const DEFAULT_THEME: Theme = 'system';
+export const DEFAULT_THEME: Theme = 'dark';
 
 /**
  * Get system color scheme preference

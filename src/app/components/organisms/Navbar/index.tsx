@@ -6,7 +6,6 @@ import { useScrollDirection } from '@/app/hooks/useScrollDirection';
 import NavBrand from '@/app/components/molecules/NavBrand';
 import NavMenu from '@/app/components/molecules/NavMenu';
 import SocialLinks from '@/app/components/molecules/SocialLinks';
-import ThemeToggle from '@/app/components/atoms/ThemeToggle';
 import Button from '@/app/components/atoms/Button';
 
 interface NavbarProps {
@@ -96,7 +95,6 @@ export default function Navbar({
               <NavMenu />
               <div className="flex items-center gap-4">
                 <SocialLinks size={18} />
-                <ThemeToggle />
                 <Button variant="primary" size="md" href="#contact">
                   Contact
                 </Button>
@@ -105,10 +103,9 @@ export default function Navbar({
 
             {/* Mobile Menu Button */}
             <div className="flex lg:hidden items-center gap-4">
-              <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-bg-tertiary hover:bg-bg-elevated rounded-sm transition-colors duration-300"
+                className="w-12 h-12 flex flex-col items-center justify-center gap-1.5 bg-bg-tertiary hover:bg-bg-elevated rounded-sm transition-colors duration-300"
                 aria-label="Toggle menu"
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
