@@ -52,20 +52,20 @@
 
 /* Dark mode overrides */
 .dark {
-  --background: #0a0a0a;
+  --background: #000000;
   --foreground: #ededed;
-  --secondary-background: #1a1a1a;
+  --secondary-background: #000000;
 
   --accent-500: #00e6c8;
   --accent-600: #00b39e;
   --accent-subtle: rgba(0, 230, 200, 0.15);
 
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
-  --bg-elevated: #353535;
-  --bg-overlay: rgba(10, 10, 10, 0.95);
-  --bg-warm: #2d2a27;
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --bg-tertiary: #000000;
+  --bg-elevated: #1a1a1a;
+  --bg-overlay: rgba(0, 0, 0, 0.95);
+  --bg-warm: #000000;
 
   --fg-primary: #ffffff;
   --fg-secondary: #e5e5e5;
