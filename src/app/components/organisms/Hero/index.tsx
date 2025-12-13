@@ -30,7 +30,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <motion.div
-      className="min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center text-center px-6 -mt-16 sm:-mt-20 relative overflow-hidden"
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -51,12 +51,11 @@ export default function Hero({
 
       <div className="max-w-7xl relative z-10">
         <motion.div variants={fadeInUp}>
-          <Typography
-            as="h1"
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter mb-6 sm:mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
+          <h1
+            className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6 sm:mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
           >
             {title}
-          </Typography>
+          </h1>
         </motion.div>
 
         {subtitle && (

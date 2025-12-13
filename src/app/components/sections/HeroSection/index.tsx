@@ -37,12 +37,11 @@ export default function HeroSection() {
       >
         <div className="max-w-7xl">
           <motion.div variants={fadeInUp}>
-            <Typography
-              as="h1"
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
+            <h1
+              className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
             >
               ALDO MATIAS
-            </Typography>
+            </h1>
           </motion.div>
 
           <motion.div variants={fadeInUp}>
