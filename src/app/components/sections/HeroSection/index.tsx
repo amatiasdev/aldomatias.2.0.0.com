@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
 import { useCVModal } from '@/contexts/CVModalContext';
-import { fadeInUp, staggerContainer } from '@/app/constants/animations';
 
 export default function HeroSection() {
   const { openModal } = useCVModal();
@@ -28,23 +27,22 @@ export default function HeroSection() {
       {/* Gradient fade to black at bottom for smooth transition */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-[5]" />
 
-      {/* Content */}
-      <motion.div
-        className="relative z-10 h-full flex items-center justify-center text-center px-6 pt-20"
-        initial="initial"
-        animate="animate"
-        variants={staggerContainer}
-      >
+      {/* Content - LCP element visible immediately, no opacity:0 initial state */}
+      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 pt-20">
         <div className="max-w-7xl">
-          <motion.div variants={fadeInUp}>
-            <h1
-              className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
-            >
-              ALDO MATIAS
-            </h1>
-          </motion.div>
+          {/* LCP Element - Use CSS animation instead of Framer Motion to avoid render delay */}
+          <h1
+            className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9] animate-fade-in-up"
+          >
+            ALDO MATIAS
+          </h1>
 
-          <motion.div variants={fadeInUp}>
+          {/* Secondary content can use Framer Motion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <Typography
               as="h2"
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent-500 mb-10 tracking-tight uppercase"
@@ -53,14 +51,20 @@ export default function HeroSection() {
             </Typography>
           </motion.div>
 
-          <motion.div variants={fadeInUp}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <Typography as="p" className="text-fg-secondary text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
               Building scalable solutions with AWS, React, and modern web technologies. Based in Dublin, Ireland.
             </Typography>
           </motion.div>
 
           <motion.div
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <motion.div
@@ -91,7 +95,7 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

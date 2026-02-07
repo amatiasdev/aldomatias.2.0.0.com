@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,15 +9,29 @@ import { CVModalProvider } from "@/contexts/CVModalContext";
 import CVModal from "./components/organisms/CVModal";
 import JsonLd from "./components/seo/JsonLd";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+// Google Fonts with next/font for optimal loading
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+  preload: true,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+  preload: false, // Lower priority - only used for code blocks
 });
 
 export const metadata: Metadata = {
@@ -115,7 +129,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen transition-colors duration-200`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased flex flex-col min-h-screen transition-colors duration-200`}
       >
         <Providers>
           <CVModalProvider>

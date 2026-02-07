@@ -2,6 +2,18 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // ===================================================================
+  // PERFORMANCE OPTIMIZATION
+  // ===================================================================
+  experimental: {
+    // Optimize package imports to reduce bundle size
+    optimizePackageImports: [
+      'framer-motion',
+      'lucide-react',
+      '@heroicons/react',
+    ],
+  },
+
+  // ===================================================================
   // IMAGE OPTIMIZATION
   // ===================================================================
   images: {
