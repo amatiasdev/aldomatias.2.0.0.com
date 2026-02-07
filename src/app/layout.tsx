@@ -5,8 +5,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Providers } from "./providers";
 import { themeScript } from "@/lib/theme-script";
-import { CVModalProvider } from "@/contexts/CVModalContext";
-import CVModal from "./components/organisms/CVModal";
 import JsonLd from "./components/seo/JsonLd";
 
 // Google Fonts with next/font for optimal loading
@@ -31,44 +29,53 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400"],
   variable: "--font-jetbrains-mono",
   display: "swap",
-  preload: false, // Lower priority - only used for code blocks
+  preload: false,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aldomatias.com'),
   title: {
-    default: 'Aldo Matias | Full-Stack Developer - Available Worldwide',
+    default: 'Aldo Matias | Automatización n8n, Seguridad & AWS',
     template: '%s | Aldo Matias'
   },
-  description: 'Middle Full-Stack Developer with 4+ years experience in React, Node.js, TypeScript & AWS. Open to global opportunities. Previously at BBVA Bank. Fluent in English. Available for remote (USA timezone) and on-site roles (Europe).',
+  description: 'Automatizo operaciones con n8n, audito seguridad (OWASP) y configuro infraestructura AWS para empresas. Resultados en 1–2 semanas. Ex-BBVA Bank. Propuesta en 48h.',
   keywords: [
-    // Core Skills
-    'Full-Stack Developer',
-    'React Developer',
-    'Node.js Developer',
-    'TypeScript Developer',
-    'AWS Cloud Engineer',
-    'JavaScript Engineer',
-    'Next.js Developer',
-    'MongoDB Developer',
-    'Docker DevOps',
-    'Cloud Infrastructure Engineer',
-    // International/Remote
-    'Remote Developer LATAM',
-    'Nearshore Developer',
-    'International Software Engineer',
-    'Developer open to relocation',
-    'Software Engineer visa sponsorship',
-    // Geographic targeting
-    'Developer willing to relocate USA',
-    'Developer relocation Europe',
-    'H1B visa developer',
-    'Blue Card developer',
-    'Developer relocation Germany',
-    'Developer relocation Netherlands',
-    // Availability
-    'Web Developer for hire',
-    'Middle Developer available',
+    // Services
+    'n8n automation',
+    'automatización n8n',
+    'security audit',
+    'auditoría de seguridad',
+    'AWS infrastructure',
+    'infraestructura AWS',
+    'OWASP audit',
+    // Service-specific
+    'WhatsApp automation',
+    'automatización WhatsApp',
+    'disaster recovery AWS',
+    'VPN setup',
+    'Active Directory cloud',
+    'workflow automation',
+    // Consulting
+    'freelance automation consultant',
+    'consultor automatización',
+    'security consultant',
+    'consultor seguridad',
+    'cloud infrastructure freelancer',
+    // Long-tail
+    'n8n consultant',
+    'consultor n8n',
+    'OWASP security audit cost',
+    'costo auditoría seguridad',
+    'n8n WhatsApp automation',
+    'automatización WhatsApp n8n',
+    'AWS disaster recovery setup',
+    'configuración disaster recovery',
+    'freelance DevOps',
+    'DevOps freelancer',
+    // Location
+    'automation consultant Dublin',
+    'security audit LATAM',
+    'AWS consultant remote',
   ],
   authors: [{ name: 'Aldo Matias', url: 'https://aldomatias.com' }],
   creator: 'Aldo Matias',
@@ -86,27 +93,33 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://aldomatias.com',
+    languages: {
+      'es': 'https://aldomatias.com',
+      'en': 'https://aldomatias.com',
+      'x-default': 'https://aldomatias.com',
+    },
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'es_MX',
+    alternateLocale: ['en_US'],
     url: 'https://aldomatias.com',
-    siteName: 'Aldo Matias Portfolio',
-    title: 'Aldo Matias | Full-Stack Developer - Available Worldwide',
-    description: 'Middle Full-Stack Developer with 4+ years in React, Node.js, TypeScript & AWS. Open to global opportunities. Remote (USA) & On-site (Europe).',
+    siteName: 'Aldo Matias | Automatización & Seguridad',
+    title: 'Aldo Matias | Automatización n8n, Seguridad & AWS',
+    description: 'Automatizo operaciones con n8n, audito seguridad y configuro infraestructura AWS. Resultados en 1–2 semanas. Propuesta en 48h.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Aldo Matias - Full-Stack Developer',
+        alt: 'Aldo Matias - Automatización, Seguridad & AWS',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aldo Matias | Full-Stack Developer',
-    description: 'React, Node.js, TypeScript & AWS. Open to global opportunities.',
+    title: 'Aldo Matias | Automatización n8n, Seguridad & AWS',
+    description: 'Automatizo operaciones, audito seguridad y configuro AWS. Entrega en 1–2 semanas. Propuesta gratuita en 48h.',
     images: ['/og-image.png'],
     creator: '@aldomatias',
   },
@@ -120,9 +133,10 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <meta name="apple-mobile-web-app-title" content="Aldo Matias" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
@@ -132,12 +146,9 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased flex flex-col min-h-screen transition-colors duration-200`}
       >
         <Providers>
-          <CVModalProvider>
-            <Header/>
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <CVModal />
-          </CVModalProvider>
+          <Header/>
+          <main className="flex-grow">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

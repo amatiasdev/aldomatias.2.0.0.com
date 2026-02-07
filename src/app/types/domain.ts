@@ -26,14 +26,6 @@ export interface Job {
   };
 }
 
-/**
- * Contact form submission data
- */
-export interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
 
 /**
  * Form validation error

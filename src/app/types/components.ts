@@ -38,7 +38,12 @@ export interface TypographyProps {
 }
 
 // Input types
-export type InputType = 'text' | 'email' | 'tel' | 'textarea';
+export type InputType = 'text' | 'email' | 'tel' | 'textarea' | 'select';
+
+export interface SelectOption {
+  value: string;
+  label: string;
+}
 
 export interface InputProps {
   type?: InputType;
@@ -53,6 +58,7 @@ export interface InputProps {
   autoComplete?: string;
   id: string;
   rows?: number;
+  options?: SelectOption[];
 }
 
 // Badge types
@@ -152,7 +158,9 @@ export interface AnimatedSectionProps {
 export interface ContactFormData extends Record<string, unknown> {
   name: string;
   email: string;
-  company?: string;
+  company: string;
+  service: string;
+  budget?: string;
   message: string;
 }
 

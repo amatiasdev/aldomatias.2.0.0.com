@@ -3,98 +3,112 @@
 import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
-import { useCVModal } from '@/contexts/CVModalContext';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function HeroSection() {
-  const { openModal } = useCVModal();
+  const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden">
-      {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/aldo-bg.mp4" type="video/mp4" />
-      </video>
+    <section id="home" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-bg-primary via-bg-primary to-accent-500/10" />
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Subtle animated accent */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-tr from-accent-500/5 via-transparent to-accent-500/5"
+        animate={{
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
-      {/* Gradient fade to black at bottom for smooth transition */}
+      {/* Gradient fade to black at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-[5]" />
 
-      {/* Content - LCP element visible immediately, no opacity:0 initial state */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 pt-20">
-        <div className="max-w-7xl">
-          {/* LCP Element - Use CSS animation instead of Framer Motion to avoid render delay */}
-          <h1
-            className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9] animate-fade-in-up"
-          >
-            ALDO MATIAS
-          </h1>
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 pt-20 max-w-5xl mx-auto">
+        {/* Name - eyebrow label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0 }}
+        >
+          <Typography as="p" className="text-sm sm:text-base font-medium uppercase tracking-[0.2em] text-fg-tertiary mb-6">
+            {t('hero.name') as string}
+          </Typography>
+        </motion.div>
 
-          {/* Secondary content can use Framer Motion */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <Typography
-              as="h2"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent-500 mb-10 tracking-tight uppercase"
-            >
-              Cloud Infrastructure Engineer & Front-End Developer
-            </Typography>
-          </motion.div>
+        {/* Headline - Value proposition (dominant) */}
+        <h1
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-fg-primary leading-tight max-w-4xl mx-auto animate-fade-in-up"
+        >
+          {t('hero.headline') as string}
+        </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Typography as="p" className="text-fg-secondary text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
-              Building scalable solutions with AWS, React, and modern web technologies. Based in Dublin, Ireland.
-            </Typography>
-          </motion.div>
+        {/* Headline support line */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <Typography as="p" className="text-fg-secondary text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+            {t('hero.headlineSupport') as string}
+          </Typography>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+        {/* Subheadline - Services */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Typography as="p" className="text-accent-500 text-lg md:text-xl lg:text-2xl font-semibold mb-3">
+            {t('hero.subheadline') as string}
+          </Typography>
+        </motion.div>
+
+        {/* Proof line */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <Typography as="p" className="text-fg-tertiary font-medium text-base md:text-lg mb-10">
+            {t('hero.proofLine') as string}
+          </Typography>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-col items-center"
+        >
+          <Button
+            variant="primary"
+            size="lg"
+            href="#contact"
+            className="text-lg px-12 py-5 shadow-accent-lg hover:shadow-accent font-bold"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                variant="primary"
-                size="lg"
-                href="#experience"
-                className="text-lg px-12 py-5 shadow-accent-lg hover:shadow-accent font-bold"
-              >
-                View Projects
-              </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={openModal}
-                className="text-lg px-12 py-5 font-bold"
-              >
-                View CV
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
+            {t('hero.cta') as string}
+          </Button>
+          <Typography as="p" className="text-fg-tertiary text-sm mt-4">
+            {t('hero.ctaSubtext') as string}
+          </Typography>
+          <Button
+            variant="ghost"
+            size="sm"
+            href="#process"
+            className="text-fg-tertiary hover:text-accent-500 mt-3"
+          >
+            {t('hero.ctaSecondary') as string} ↓
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

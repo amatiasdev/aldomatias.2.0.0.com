@@ -15,6 +15,7 @@ export default function Input({
   autoComplete,
   id,
   rows = 4,
+  options,
 }: InputProps) {
   const baseStyles = 'w-full px-4 py-3 bg-white/5 border-b-2 text-fg-primary placeholder-fg-quaternary transition-all duration-300 focus:outline-none';
   const borderStyles = error
@@ -36,7 +37,36 @@ export default function Input({
         </label>
       )}
 
-      {type === 'textarea' ? (
+      {type === 'select' && options ? (
+        <select
+          id={id}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onBlur={onBlur}
+          required={required}
+          disabled={disabled}
+          className={`${classes} appearance-none cursor-pointer`}
+          aria-invalid={error ? 'true' : 'false'}
+          aria-describedby={error ? `${id}-error` : undefined}
+          aria-required={required ? 'true' : 'false'}
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right 16px center',
+          }}
+        >
+          {placeholder && (
+            <option value="" disabled className="bg-black text-fg-quaternary">
+              {placeholder}
+            </option>
+          )}
+          {options.map((option) => (
+            <option key={option.value} value={option.value} className="bg-black text-fg-primary">
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ) : type === 'textarea' ? (
         <textarea
           id={id}
           value={value}

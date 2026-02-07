@@ -2,66 +2,45 @@
 
 import FooterColumn from '@/app/components/molecules/FooterColumn';
 import SocialLinks from '@/app/components/molecules/SocialLinks';
-import Newsletter from '@/app/components/molecules/Newsletter';
-import { useCVModal } from '@/contexts/CVModalContext';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 interface EnhancedFooterProps {
-  variant?: 'minimal' | 'expanded';
-  showNewsletter?: boolean;
   className?: string;
 }
 
 export default function EnhancedFooter({
-  variant = 'expanded',
-  showNewsletter = true,
   className = '',
 }: EnhancedFooterProps) {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-  const { openModal } = useCVModal();
 
-  if (variant === 'minimal') {
-    return (
-      <footer className={`bg-bg-primary border-t border-border-subtle py-8 ${className}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-sm text-fg-tertiary text-center">
-              © {currentYear} Aldo Matias. All rights reserved.
-            </p>
-            <SocialLinks />
-          </div>
-        </div>
-      </footer>
-    );
-  }
-
-  // Expanded variant
   return (
     <footer className={`bg-bg-primary border-t border-border-subtle ${className}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Quick Links */}
           <FooterColumn
-            title="Quick Links"
+            title={t('footer.quickLinks') as string}
             links={[
-              { label: 'Home', href: '#home' },
-              { label: 'Experience', href: '#experience' },
-              { label: 'Skills', href: '#skills' },
-              { label: 'Contact', href: '#contact' },
+              { label: t('nav.home') as string, href: '#home' },
+              { label: t('nav.services') as string, href: '#services' },
+              { label: t('nav.credibility') as string, href: '#credibility' },
+              { label: t('nav.contact') as string, href: '#contact' },
             ]}
           />
 
-          {/* Resources */}
+          {/* Services */}
           <FooterColumn
-            title="Resources"
+            title={t('footer.servicesTitle') as string}
             links={[
-              { label: 'View CV', onClick: openModal },
-              { label: 'View Projects', href: '#experience' },
-              { label: 'GitHub', href: 'https://github.com/amatiasdev', external: true },
+              { label: t('footer.automationLink') as string, href: '#services' },
+              { label: t('footer.securityLink') as string, href: '#services' },
+              { label: t('footer.awsLink') as string, href: '#services' },
             ]}
           />
 
           {/* Connect */}
-          <FooterColumn title="Connect">
+          <FooterColumn title={t('footer.connect') as string}>
             <div className="space-y-4">
               <SocialLinks orientation="vertical" showLabels />
               <a
@@ -70,43 +49,19 @@ export default function EnhancedFooter({
               >
                 contacto@aldomatias.com
               </a>
-              <p className="text-sm text-fg-quaternary">
-                Dublin, Ireland
-              </p>
             </div>
           </FooterColumn>
-
-          {/* Newsletter */}
-          {showNewsletter && (
-            <FooterColumn title="Stay Updated">
-              <Newsletter
-                title=""
-                description="Get notified about new projects and blog posts"
-              />
-            </FooterColumn>
-          )}
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border-subtle">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-fg-tertiary text-center">
-              © {currentYear} Aldo Matias. Designed & built with Next.js, React, and Tailwind CSS.
+              {(t('footer.copyright') as string).replace('{year}', String(currentYear))}
             </p>
-            <div className="flex items-center gap-6">
-              <a
-                href="/privacy"
-                className="text-sm text-fg-quaternary hover:text-accent-500 transition-colors duration-300"
-              >
-                Privacy
-              </a>
-              <a
-                href="/terms"
-                className="text-sm text-fg-quaternary hover:text-accent-500 transition-colors duration-300"
-              >
-                Terms
-              </a>
-            </div>
+            <p className="text-sm text-fg-quaternary text-center">
+              {t('footer.builtWith') as string}
+            </p>
           </div>
         </div>
       </div>

@@ -2,36 +2,31 @@
 
 import NavLink from '@/app/components/atoms/NavLink';
 import { useActiveSection } from '@/app/hooks/useActiveSection';
-
-interface NavMenuItem {
-  label: string;
-  href: string;
-  external?: boolean;
-}
+import { useTranslation } from '@/contexts/LanguageContext';
 
 interface NavMenuProps {
-  items?: NavMenuItem[];
   onItemClick?: () => void;
   className?: string;
 }
 
-const defaultItems: NavMenuItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-];
+const SECTION_IDS = ['home', 'services', 'process', 'credibility', 'faq', 'contact'];
 
 export default function NavMenu({
-  items = defaultItems,
   onItemClick,
   className = '',
 }: NavMenuProps) {
-  const sectionIds = items
-    .filter(item => item.href.startsWith('#'))
-    .map(item => item.href.slice(1));
+  const { t } = useTranslation();
 
-  const activeSection = useActiveSection(sectionIds);
+  const items = [
+    { label: t('nav.home') as string, href: '#home' },
+    { label: t('nav.services') as string, href: '#services' },
+    { label: t('nav.process') as string, href: '#process' },
+    { label: t('nav.credibility') as string, href: '#credibility' },
+    { label: t('nav.faq') as string, href: '#faq' },
+    { label: t('nav.contact') as string, href: '#contact' },
+  ];
+
+  const activeSection = useActiveSection(SECTION_IDS);
 
   return (
     <nav className={`flex items-center gap-8 ${className}`} role="navigation">
@@ -46,7 +41,6 @@ export default function NavMenu({
             href={item.href}
             isActive={isActive}
             onClick={onItemClick}
-            external={item.external}
           >
             {item.label}
           </NavLink>

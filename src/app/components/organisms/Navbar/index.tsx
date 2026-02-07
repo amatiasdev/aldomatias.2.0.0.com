@@ -6,7 +6,9 @@ import { useScrollDirection } from '@/app/hooks/useScrollDirection';
 import NavBrand from '@/app/components/molecules/NavBrand';
 import NavMenu from '@/app/components/molecules/NavMenu';
 import SocialLinks from '@/app/components/molecules/SocialLinks';
+import LanguageSelector from '@/app/components/atoms/LanguageSelector';
 import Button from '@/app/components/atoms/Button';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 interface NavbarProps {
   variant?: 'transparent' | 'solid' | 'auto';
@@ -19,17 +21,16 @@ export default function Navbar({
   hideOnScroll = false,
   className = '',
 }: NavbarProps) {
+  const { t } = useTranslation();
   const { scrollDirection, scrollY } = useScrollDirection({ threshold: 10 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isScrolled = scrollY > 50;
   const shouldHide = hideOnScroll && scrollDirection === 'down' && scrollY > 200;
 
-  // Determine navbar style
   const getNavbarStyle = () => {
     if (variant === 'solid') return 'solid';
     if (variant === 'transparent') return 'transparent';
-    // Auto mode
     return isScrolled ? 'solid' : 'transparent';
   };
 
@@ -40,7 +41,6 @@ export default function Navbar({
     ? 'bg-bg-primary/90 backdrop-blur-md border-b border-border-subtle'
     : 'bg-transparent';
 
-  // Close menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -52,7 +52,6 @@ export default function Navbar({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -65,7 +64,6 @@ export default function Navbar({
     };
   }, [isMenuOpen]);
 
-  // Close menu on ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMenuOpen) {
@@ -94,15 +92,17 @@ export default function Navbar({
             <div className="hidden lg:flex items-center gap-8">
               <NavMenu />
               <div className="flex items-center gap-4">
+                <LanguageSelector />
                 <SocialLinks size={18} />
                 <Button variant="primary" size="md" href="#contact">
-                  Contact
+                  {t('cta.getInTouch') as string}
                 </Button>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex lg:hidden items-center gap-4">
+              <LanguageSelector />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="w-12 h-12 flex flex-col items-center justify-center gap-1.5 bg-bg-tertiary hover:bg-bg-elevated rounded-sm transition-colors duration-300"
@@ -149,8 +149,9 @@ export default function Navbar({
   );
 }
 
-// Mobile Menu Component
 function MobileMenu({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       id="mobile-menu"
@@ -160,7 +161,6 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Backdrop */}
       <motion.div
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
@@ -169,7 +169,6 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         exit={{ opacity: 0 }}
       />
 
-      {/* Menu Content */}
       <motion.div
         className="absolute top-20 left-0 right-0 bottom-0 bg-bg-primary border-t border-border-subtle overflow-y-auto"
         initial={{ y: '-100%' }}
@@ -198,7 +197,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             onClick={onClose}
             className="w-full"
           >
-            Get in Touch
+            {t('cta.getInTouch') as string}
           </Button>
         </div>
       </motion.div>

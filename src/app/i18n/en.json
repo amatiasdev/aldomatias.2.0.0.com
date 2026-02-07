@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Home",
+    "problem": "Problems",
+    "services": "Services",
+    "credibility": "Results",
+    "process": "Process",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "name": "ALDO MATIAS",
+    "headline": "I eliminate the manual work slowing your growth",
+    "headlineSupport": "n8n automation, OWASP audits, and AWS infrastructure — delivered in weeks, not months.",
+    "subheadline": "n8n Automation \u00b7 Security Audits \u00b7 AWS Infrastructure",
+    "proofLine": "Ex-BBVA Bank \u00b7 15h of manual work eliminated/week \u00b7 Delivery in 1\u20132 weeks",
+    "cta": "Get your proposal in 48h",
+    "ctaSubtext": "No commitment. 100% free proposal.",
+    "ctaSecondary": "See how it works"
+  },
+  "problem": {
+    "title": "SOUND FAMILIAR?",
+    "subtitle": "Every week without fixing these costs more than the solution.",
+    "items": [
+      {
+        "title": "Manual processes that don't scale",
+        "description": "Your operations depend on repetitive tasks that break when you grow. Every new client means more manual work."
+      },
+      {
+        "title": "Invisible vulnerabilities",
+        "description": "You have no visibility into security risks until it's too late. One incident can cost you months of work and reputation."
+      },
+      {
+        "title": "Expensive and slow cloud infrastructure",
+        "description": "Setting up cloud infrastructure internally costs 3x more in time and mistakes. Without disaster recovery, one failure takes you offline."
+      }
+    ]
+  },
+  "services": {
+    "title": "SOLUTIONS WITH MEASURABLE DELIVERABLES",
+    "subtitle": "Concrete solutions with measurable deliverables",
+    "cta": "Get your proposal",
+    "items": [
+      {
+        "name": "n8n Automation",
+        "tagline": "Operations on Autopilot",
+        "problem": "Spending hours on repetitive tasks?",
+        "description": "I eliminate hours of manual work every week with workflows that run 24/7: automatic WhatsApp replies, CRM sync without intervention, reports that generate themselves.",
+        "includes": [
+          "Configured and tested workflows",
+          "Technical documentation",
+          "1 week post-delivery support"
+        ],
+        "time": "3\u20137 days",
+        "hook": "We start with 1 workflow. If it works, we scale.",
+        "comparison": "Manual work costs your team hours every week. Automate once, save forever."
+      },
+      {
+        "name": "Security Audit",
+        "tagline": "Express Shield",
+        "problem": "Do you know if your application is vulnerable?",
+        "description": "I find the vulnerabilities that get companies hacked before someone else does. Complete OWASP Top 10 review, cloud configuration, and executive report with priority and action plan.",
+        "includes": [
+          "OWASP Top 10 analysis",
+          "Executive PDF report",
+          "Critical vulnerability remediation"
+        ],
+        "time": "5\u201310 days",
+        "hook": "You get the report even if you don't hire the remediation.",
+        "comparison": "A single data breach can cost months of work and your reputation. Prevention is a fraction of the risk."
+      },
+      {
+        "name": "AWS Infrastructure",
+        "tagline": "Your Office in the Cloud",
+        "problem": "Need cloud infrastructure without hiring a DevOps team?",
+        "description": "If your server fails, you recover everything in minutes, not days. Secure VPN, centralized users, reliable DNS \u2014 all configured and documented so your team runs it without DevOps.",
+        "includes": [
+          "Configured AWS infrastructure",
+          "Complete documentation + access",
+          "Transition support"
+        ],
+        "time": "1\u20132 weeks",
+        "hook": "No monthly DevOps subscription. Your team maintains it with the included documentation.",
+        "comparison": "No monthly DevOps subscription. One-time setup your team maintains with the included documentation."
+      }
+    ]
+  },
+  "credibility": {
+    "title": "PROVEN RESULTS",
+    "stats": [
+      {
+        "value": "15h",
+        "label": "Of manual work eliminated per week"
+      },
+      {
+        "value": "5+",
+        "label": "Years of experience"
+      },
+      {
+        "value": "100%",
+        "label": "OWASP Top 10 Compliance"
+      }
+    ],
+    "experience": "Ex-BBVA Bank \u00b7 Security audits across multiple companies \u00b7 Production platforms",
+    "differentiator": "I'm not an agency. I work directly with you, no middlemen, with real experience in banking and financial services."
+  },
+  "process": {
+    "title": "FROM PROBLEM TO SOLUTION IN 3 STEPS",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Submit your project",
+        "description": "Fill out the form with your project details. No commitment."
+      },
+      {
+        "number": "02",
+        "title": "Proposal in 48h",
+        "description": "You receive YOUR personalized proposal: exact scope for your company, solution tailored to your situation, timeline designed for your schedule."
+      },
+      {
+        "number": "03",
+        "title": "Implementation in 1\u20132 weeks",
+        "description": "Focused execution on YOUR project with measurable deliverables every 3 days and direct communication with me."
+      }
+    ]
+  },
+  "contact": {
+    "title": "TELL ME ABOUT YOUR PROJECT",
+    "subtitle": "Fill out the form and you'll receive a proposal in less than 48 hours.",
+    "trustLine": "No commitment. Response in less than 48h.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your.email@company.com",
+      "emailHelper": "Your best contact email",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "service": "Service you're interested in",
+      "serviceOptions": {
+        "automation": "n8n Automation",
+        "security": "Security Audit",
+        "infrastructure": "AWS Infrastructure",
+        "unsure": "I'm not sure"
+      },
+      "budget": "Project scope",
+      "budgetOptions": {
+        "small": "Small project (1 workflow or task)",
+        "medium": "Medium project (multiple components)",
+        "large": "Large project (full implementation)",
+        "guidance": "I need guidance"
+      },
+      "message": "Briefly describe your project",
+      "messagePlaceholder": "What problem do you need to solve? What's your current situation?",
+      "selectPlaceholder": "Select...",
+      "submit": "Get free proposal",
+      "submitting": "Submitting...",
+      "successTitle": "Project received!",
+      "successMessage": "I'll send you a personalized proposal with scope and timeline in less than 48 hours.",
+      "sendAnother": "Submit another project"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "emailBusiness": "Please use a business email",
+      "companyRequired": "Company is required",
+      "serviceRequired": "Please select a service",
+      "budgetRequired": "Please select a project scope",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters"
+    }
+  },
+  "faq": {
+    "title": "FREQUENTLY ASKED QUESTIONS",
+    "items": [
+      {
+        "question": "How long does it take to implement n8n automation?",
+        "answer": "3\u20137 days for standard workflows like WhatsApp replies or CRM sync. Complex projects with multiple integrations take up to 2 weeks. You receive progress updates every 3 days."
+      },
+      {
+        "question": "Do I need technical knowledge to maintain the automation?",
+        "answer": "No. Every deliverable includes step-by-step documentation with screenshots. Plus, you get 1 week of support where I answer questions and make any adjustments you need."
+      },
+      {
+        "question": "What if I'm not satisfied with the result?",
+        "answer": "You receive the deliverable with revisions included until it works as you expected. No extra charge for adjustments within the original scope. If the project doesn't meet what was agreed, you don't pay."
+      },
+      {
+        "question": "Do you work with companies outside LATAM?",
+        "answer": "Yes. I work 100% remotely with clients in LATAM, Europe, and the United States. Time zones are not a problem: I adapt to your schedule for meetings and deliverables."
+      }
+    ]
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Services",
+    "automationLink": "n8n Automation",
+    "securityLink": "Security Audit",
+    "awsLink": "AWS Infrastructure",
+    "connect": "Connect",
+    "copyright": "\u00a9 {year} Aldo Matias. All rights reserved.",
+    "builtWith": "Designed & built with Next.js, React, and Tailwind CSS."
+  },
+  "cta": {
+    "getInTouch": "Request proposal"
+  }
+}

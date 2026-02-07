@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "problem": "Problemas",
+    "services": "Servicios",
+    "credibility": "Resultados",
+    "process": "Proceso",
+    "contact": "Contacto",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "name": "ALDO MATIAS",
+    "headline": "Elimino el trabajo manual que frena tu crecimiento",
+    "headlineSupport": "Automatización n8n, auditorías OWASP e infraestructura AWS — entregado en semanas, no meses.",
+    "subheadline": "Automatización con n8n · Auditorías de seguridad · Infraestructura AWS",
+    "proofLine": "Ex-BBVA Bank · 15h de trabajo manual eliminadas/semana · Entrega en 1–2 semanas",
+    "cta": "Recibe tu propuesta en 48h",
+    "ctaSubtext": "Sin compromiso. Propuesta 100% gratuita.",
+    "ctaSecondary": "Ver cómo funciona"
+  },
+  "problem": {
+    "title": "¿TE SUENA FAMILIAR?",
+    "subtitle": "Cada semana sin resolver estos problemas cuesta más que solucionarlos.",
+    "items": [
+      {
+        "title": "Procesos manuales que no escalan",
+        "description": "Tus operaciones dependen de tareas repetitivas que fallan cuando creces. Cada nuevo cliente significa más trabajo manual."
+      },
+      {
+        "title": "Vulnerabilidades invisibles",
+        "description": "No tienes visibilidad de riesgos de seguridad hasta que ya es tarde. Un incidente puede costarte meses de trabajo y reputación."
+      },
+      {
+        "title": "Infraestructura cloud costosa y lenta",
+        "description": "Montar infraestructura cloud internamente te cuesta 3x más en tiempo y errores. Sin disaster recovery, un fallo te deja fuera."
+      }
+    ]
+  },
+  "services": {
+    "title": "SOLUCIONES CON ENTREGABLES MEDIBLES",
+    "subtitle": "Soluciones concretas con entregables medibles",
+    "cta": "Solicita tu propuesta",
+    "items": [
+      {
+        "name": "Automatización n8n",
+        "tagline": "Operaciones en Autopilot",
+        "problem": "¿Pierdes horas en tareas repetitivas?",
+        "description": "Elimino horas de trabajo manual cada semana con flujos que trabajan 24/7: respuestas automáticas en WhatsApp, sincronización de CRM sin intervención, reportes que se generan solos.",
+        "includes": [
+          "Flujos configurados y probados",
+          "Documentación técnica",
+          "1 semana de soporte post-entrega"
+        ],
+        "time": "3–7 días",
+        "hook": "Empezamos con 1 flujo. Si funciona, escalamos.",
+        "comparison": "El trabajo manual le cuesta a tu equipo horas cada semana. Automatiza una vez, ahorra siempre."
+      },
+      {
+        "name": "Auditoría de Seguridad",
+        "tagline": "Blindaje Express",
+        "problem": "¿Sabes si tu aplicación es vulnerable?",
+        "description": "Encuentro las vulnerabilidades que hackean empresas antes de que alguien más lo haga. Revisión completa OWASP Top 10, configuración cloud, y reporte ejecutivo con prioridad y plan de acción.",
+        "includes": [
+          "Análisis OWASP Top 10",
+          "Reporte ejecutivo PDF",
+          "Remediación de vulnerabilidades críticas"
+        ],
+        "time": "5–10 días",
+        "hook": "Recibes el reporte aunque no contrates la remediación.",
+        "comparison": "Una sola brecha de datos puede costarte meses de trabajo y reputación. La prevención es una fracción del riesgo."
+      },
+      {
+        "name": "Infraestructura AWS",
+        "tagline": "Tu Oficina en la Nube",
+        "problem": "¿Necesitas infraestructura cloud sin contratar equipo DevOps?",
+        "description": "Si tu servidor falla, recuperas todo en minutos, no días. VPN segura, usuarios centralizados, DNS confiable — todo configurado y documentado para que tu equipo lo opere sin DevOps.",
+        "includes": [
+          "Infraestructura configurada en AWS",
+          "Documentación completa + accesos",
+          "Soporte de transición"
+        ],
+        "time": "1–2 semanas",
+        "hook": "Sin suscripción mensual de DevOps. Tu equipo lo mantiene con la documentación incluida.",
+        "comparison": "Sin suscripción mensual de DevOps. Configuración única que tu equipo mantiene con la documentación incluida."
+      }
+    ]
+  },
+  "credibility": {
+    "title": "RESULTADOS COMPROBADOS",
+    "stats": [
+      {
+        "value": "15h",
+        "label": "De trabajo manual eliminadas por semana"
+      },
+      {
+        "value": "5+",
+        "label": "Años de experiencia"
+      },
+      {
+        "value": "100%",
+        "label": "Compliance OWASP Top 10"
+      }
+    ],
+    "experience": "Ex-BBVA Bank · Auditorías de seguridad en múltiples empresas · Plataformas en producción",
+    "differentiator": "No soy una agencia. Trabajo directamente contigo, sin intermediarios, con experiencia real en banca y servicios financieros."
+  },
+  "process": {
+    "title": "DE PROBLEMA A SOLUCIÓN EN 3 PASOS",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Envía tu proyecto",
+        "description": "Completa el formulario con los detalles de tu proyecto. Sin compromiso."
+      },
+      {
+        "number": "02",
+        "title": "Propuesta en 48h",
+        "description": "Recibes TU propuesta personalizada: alcance exacto para tu empresa, solución adaptada a tu situación, timeline diseñado para tu calendario."
+      },
+      {
+        "number": "03",
+        "title": "Implementación en 1–2 semanas",
+        "description": "Ejecución enfocada en TU proyecto con entregables medibles cada 3 días y comunicación directa conmigo."
+      }
+    ]
+  },
+  "contact": {
+    "title": "CUÉNTAME SOBRE TU PROYECTO",
+    "subtitle": "Completa el formulario y recibirás una propuesta en menos de 48 horas.",
+    "trustLine": "Sin compromiso. Respuesta en menos de 48h.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu.email@empresa.com",
+      "emailHelper": "Tu mejor email de contacto",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de tu empresa",
+      "service": "Servicio que te interesa",
+      "serviceOptions": {
+        "automation": "Automatización n8n",
+        "security": "Auditoría de Seguridad",
+        "infrastructure": "Infraestructura AWS",
+        "unsure": "No estoy seguro"
+      },
+      "budget": "Tamaño del proyecto",
+      "budgetOptions": {
+        "small": "Proyecto pequeño (1 flujo o tarea)",
+        "medium": "Proyecto mediano (múltiples componentes)",
+        "large": "Proyecto grande (implementación completa)",
+        "guidance": "Necesito orientación"
+      },
+      "message": "Describe brevemente tu proyecto",
+      "messagePlaceholder": "¿Qué problema necesitas resolver? ¿Cuál es tu situación actual?",
+      "selectPlaceholder": "Selecciona...",
+      "submit": "Recibir propuesta gratuita",
+      "submitting": "Enviando...",
+      "successTitle": "¡Proyecto recibido!",
+      "successMessage": "Te envío una propuesta personalizada con alcance y timeline en menos de 48 horas.",
+      "sendAnother": "Enviar otro proyecto"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "emailRequired": "El email es obligatorio",
+      "emailInvalid": "Formato de email inválido",
+      "emailBusiness": "Por favor usa un email corporativo",
+      "companyRequired": "La empresa es obligatoria",
+      "serviceRequired": "Selecciona un servicio",
+      "budgetRequired": "Selecciona el tamaño del proyecto",
+      "messageRequired": "El mensaje es obligatorio",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres"
+    }
+  },
+  "faq": {
+    "title": "PREGUNTAS FRECUENTES",
+    "items": [
+      {
+        "question": "¿Cuánto tiempo toma implementar automatización n8n?",
+        "answer": "3–7 días para flujos estándar como respuestas WhatsApp o sincronización CRM. Proyectos complejos con múltiples integraciones toman hasta 2 semanas. Recibes avances cada 3 días."
+      },
+      {
+        "question": "¿Necesito conocimiento técnico para mantener la automatización?",
+        "answer": "No. Cada entregable incluye documentación paso a paso con capturas de pantalla. Además, tienes 1 semana de soporte donde resuelvo dudas y ajusto lo que necesites."
+      },
+      {
+        "question": "¿Qué pasa si no estoy satisfecho con el resultado?",
+        "answer": "Recibes el entregable con revisiones incluidas hasta que funcione como esperabas. No cobro extra por ajustes dentro del alcance original. Si el proyecto no cumple lo pactado, no pagas."
+      },
+      {
+        "question": "¿Trabajas con empresas fuera de LATAM?",
+        "answer": "Sí. Trabajo 100% remoto con clientes en LATAM, Europa y Estados Unidos. Las zonas horarias no son problema: me adapto a tu horario para reuniones y entregables."
+      }
+    ]
+  },
+  "footer": {
+    "quickLinks": "Enlaces rápidos",
+    "servicesTitle": "Servicios",
+    "automationLink": "Automatización n8n",
+    "securityLink": "Auditoría de Seguridad",
+    "awsLink": "Infraestructura AWS",
+    "connect": "Conectar",
+    "copyright": "© {year} Aldo Matias. Todos los derechos reservados.",
+    "builtWith": "Diseñado y construido con Next.js, React, y Tailwind CSS."
+  },
+  "cta": {
+    "getInTouch": "Solicitar propuesta"
+  }
+}

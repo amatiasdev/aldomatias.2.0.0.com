@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import DOMPurify from 'isomorphic-dompurify';
 import { supabase } from '../../../utils/supabaseClient';
-import { validateBusinessEmail } from '@/app/constants/validation';
+
 
 // ===================================================================
 // VALIDATION SCHEMA with Zod
@@ -13,15 +13,24 @@ const ContactSchema = z.object({
     .max(100, 'Name must be less than 100 characters')
     .trim(),
   company: z.string()
+    .min(1, 'Company is required')
     .max(100, 'Company name must be less than 100 characters')
-    .trim()
-    .optional(),
+    .trim(),
   email: z.string()
     .min(1, 'Email is required')
     .email('Invalid email format')
     .max(255, 'Email must be less than 255 characters')
     .trim()
     .toLowerCase(),
+  service: z.string()
+    .min(1, 'Service selection is required')
+    .max(100)
+    .trim(),
+  budget: z.string()
+    .max(100)
+    .trim()
+    .optional()
+    .default(''),
   message: z.string()
     .min(10, 'Message must be at least 10 characters')
     .max(5000, 'Message must be less than 5000 characters')
@@ -140,23 +149,14 @@ export async function POST(request: NextRequest) {
     }
 
     // ---------------------------------------------------------------
-    // 4. BUSINESS EMAIL VALIDATION
-    // ---------------------------------------------------------------
-    const emailValidation = validateBusinessEmail(validatedData.email);
-    if (!emailValidation.isValid) {
-      return NextResponse.json(
-        { error: emailValidation.error || 'Invalid business email' },
-        { status: 400 }
-      );
-    }
-
-    // ---------------------------------------------------------------
-    // 5. SANITIZE INPUTS (XSS Protection)
+    // 4. SANITIZE INPUTS (XSS Protection)
     // ---------------------------------------------------------------
     const sanitizedData = {
       name: sanitizeInput(validatedData.name),
-      company: validatedData.company ? sanitizeInput(validatedData.company) : null,
+      company: sanitizeInput(validatedData.company),
       email: validatedData.email, // Email already validated
+      service: sanitizeInput(validatedData.service),
+      budget: validatedData.budget ? sanitizeInput(validatedData.budget) : '',
       message: sanitizeInput(validatedData.message),
     };
 
@@ -172,6 +172,8 @@ export async function POST(request: NextRequest) {
       name: sanitizedData.name,
       company: sanitizedData.company,
       email: sanitizedData.email,
+      service: sanitizedData.service,
+      budget: sanitizedData.budget,
       message: sanitizedData.message,
       ip_address: ip,
       created_at: new Date().toISOString(),

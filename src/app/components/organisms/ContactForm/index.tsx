@@ -8,9 +8,11 @@ import Button from '@/app/components/atoms/Button';
 import { useFormValidation } from '@/app/hooks/useFormValidation';
 import { ContactFormData, ContactFormProps } from '@/app/types/components';
 import { fadeInUp } from '@/app/constants/animations';
-import { isPersonalEmail } from '@/app/constants/validation';
+
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
+  const { t } = useTranslation();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -20,40 +22,58 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
     name: '',
     email: '',
     company: '',
+    service: '',
+    budget: '',
     message: '',
   };
 
-  // Memoize validation schema to prevent re-creation on every render
+  const serviceOptions = useMemo(() => {
+    const opts = t('contact.form.serviceOptions') as Record<string, string>;
+    return Object.entries(opts).map(([value, label]) => ({ value, label }));
+  }, [t]);
+
+  const budgetOptions = useMemo(() => {
+    const opts = t('contact.form.budgetOptions') as Record<string, string>;
+    return Object.entries(opts).map(([value, label]) => ({ value, label }));
+  }, [t]);
+
   const validationSchema = useMemo(() => ({
     name: (value: unknown) => {
       const strValue = value as string;
-      if (!strValue.trim()) return 'Name is required';
+      if (!strValue.trim()) return t('contact.validation.nameRequired') as string;
       return undefined;
     },
     email: (value: unknown) => {
       const strValue = value as string;
-      if (!strValue.trim()) return 'Email is required';
+      if (!strValue.trim()) return t('contact.validation.emailRequired') as string;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(strValue)) return 'Invalid email format';
-
-      // Business email validation using shared constants
-      if (isPersonalEmail(strValue)) {
-        return 'Please use a business email address';
-      }
+      if (!emailRegex.test(strValue)) return t('contact.validation.emailInvalid') as string;
+      return undefined;
+    },
+    company: (value: unknown) => {
+      const strValue = value as string;
+      if (!strValue.trim()) return t('contact.validation.companyRequired') as string;
+      return undefined;
+    },
+    service: (value: unknown) => {
+      const strValue = value as string;
+      if (!strValue) return t('contact.validation.serviceRequired') as string;
+      return undefined;
+    },
+    budget: () => {
       return undefined;
     },
     message: (value: unknown) => {
       const strValue = value as string;
-      if (!strValue.trim()) return 'Message is required';
-      if (strValue.trim().length < 10) return 'Message must be at least 10 characters';
+      if (!strValue.trim()) return t('contact.validation.messageRequired') as string;
+      if (strValue.trim().length < 10) return t('contact.validation.messageMinLength') as string;
       return undefined;
     },
-  }), []);
+  }), [t]);
 
   const { values, errors, touched, handleChange, handleBlur, validate, resetForm } =
     useFormValidation(initialValues, validationSchema);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       abortControllerRef.current?.abort();
@@ -62,18 +82,16 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setApiError(null); // Clear previous errors
+    setApiError(null);
 
     if (!validate()) return;
 
-    // Abort any previous request
     abortControllerRef.current?.abort();
     abortControllerRef.current = new AbortController();
 
     setSubmitting(true);
 
     try {
-      // Add 10 second timeout
       const timeoutId = setTimeout(() => {
         abortControllerRef.current?.abort();
       }, 10000);
@@ -96,16 +114,14 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
       resetForm();
       onSuccess?.();
     } catch (error) {
-      // Ignore abort errors (user navigated away or timeout)
+      let errorMessage: string;
       if (error instanceof Error && error.name === 'AbortError') {
-        setApiError('Request timed out. Please check your connection and try again.');
+        errorMessage = 'Request timed out. Please check your connection and try again.';
       } else {
-        const errorMessage = error instanceof Error ? error.message : 'An error occurred';
-        setApiError(errorMessage);
+        errorMessage = error instanceof Error ? error.message : 'An error occurred';
       }
-
-      const errorMsg = apiError || 'Unknown error';
-      onError?.(errorMsg);
+      setApiError(errorMessage);
+      onError?.(errorMessage);
       console.error('Contact form error:', error);
     } finally {
       setSubmitting(false);
@@ -125,13 +141,13 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         aria-atomic="true"
       >
         <Typography as="h3" variant="h3" className="text-accent-500 mb-4">
-          Message Sent!
+          {t('contact.form.successTitle') as string}
         </Typography>
         <Typography as="p" className="text-fg-secondary mb-6">
-          Thank you for reaching out. I&apos;ll get back to you soon.
+          {t('contact.form.successMessage') as string}
         </Typography>
         <Button variant="ghost" onClick={() => setSubmitted(false)}>
-          Send Another Message
+          {t('contact.form.sendAnother') as string}
         </Button>
       </motion.div>
     );
@@ -139,10 +155,6 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" aria-busy={submitting}>
-      <Typography as="h3" variant="h3" className="mb-6">
-        Get In Touch
-      </Typography>
-
       {/* Error Alert */}
       {apiError && (
         <div
@@ -169,8 +181,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
       <FormField
         input={{
           id: 'name',
-          label: 'Name',
-          placeholder: 'Your name',
+          label: t('contact.form.name') as string,
+          placeholder: t('contact.form.namePlaceholder') as string,
           value: values.name,
           onChange: handleChange('name'),
           onBlur: handleBlur('name'),
@@ -184,8 +196,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         input={{
           id: 'email',
           type: 'email',
-          label: 'Email',
-          placeholder: 'your.email@company.com',
+          label: t('contact.form.email') as string,
+          placeholder: t('contact.form.emailPlaceholder') as string,
           value: values.email,
           onChange: handleChange('email'),
           onBlur: handleBlur('email'),
@@ -194,26 +206,63 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         }}
         errorMessage={touched.email ? errors.email : undefined}
         showError={!!touched.email}
-        helperText="Please use a business email address"
+        helperText={t('contact.form.emailHelper') as string}
       />
 
       <FormField
         input={{
           id: 'company',
-          label: 'Company',
-          placeholder: 'Your company (optional)',
-          value: values.company || '',
+          label: t('contact.form.company') as string,
+          placeholder: t('contact.form.companyPlaceholder') as string,
+          value: values.company,
           onChange: handleChange('company'),
           onBlur: handleBlur('company'),
+          required: true,
         }}
+        errorMessage={touched.company ? errors.company : undefined}
+        showError={!!touched.company}
       />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <FormField
+          input={{
+            id: 'service',
+            type: 'select',
+            label: t('contact.form.service') as string,
+            placeholder: t('contact.form.selectPlaceholder') as string,
+            value: values.service,
+            onChange: handleChange('service'),
+            onBlur: handleBlur('service'),
+            required: true,
+            options: serviceOptions,
+          }}
+          errorMessage={touched.service ? errors.service : undefined}
+          showError={!!touched.service}
+        />
+
+        <FormField
+          input={{
+            id: 'budget',
+            type: 'select',
+            label: t('contact.form.budget') as string,
+            placeholder: t('contact.form.selectPlaceholder') as string,
+            value: values.budget ?? '',
+            onChange: handleChange('budget'),
+            onBlur: handleBlur('budget'),
+            required: false,
+            options: budgetOptions,
+          }}
+          errorMessage={touched.budget ? errors.budget : undefined}
+          showError={!!touched.budget}
+        />
+      </div>
 
       <FormField
         input={{
           id: 'message',
           type: 'textarea',
-          label: 'Message',
-          placeholder: 'Your message...',
+          label: t('contact.form.message') as string,
+          placeholder: t('contact.form.messagePlaceholder') as string,
           value: values.message,
           onChange: handleChange('message'),
           onBlur: handleBlur('message'),
@@ -232,7 +281,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         disabled={submitting}
         className="w-full"
       >
-        {submitting ? 'Sending...' : 'Send Message'}
+        {submitting ? t('contact.form.submitting') as string : t('contact.form.submit') as string}
       </Button>
     </form>
   );
