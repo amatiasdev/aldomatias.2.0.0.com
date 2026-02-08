@@ -9,7 +9,7 @@ interface NavMenuProps {
   className?: string;
 }
 
-const SECTION_IDS = ['home', 'services', 'process', 'credibility', 'faq', 'contact'];
+const SECTION_IDS = ['home', 'credibility', 'services', 'process', 'faq', 'contact'];
 
 export default function NavMenu({
   onItemClick,
@@ -19,9 +19,9 @@ export default function NavMenu({
 
   const items = [
     { label: t('nav.home') as string, href: '#home' },
+    { label: t('nav.credibility') as string, href: '#credibility' },
     { label: t('nav.services') as string, href: '#services' },
     { label: t('nav.process') as string, href: '#process' },
-    { label: t('nav.credibility') as string, href: '#credibility' },
     { label: t('nav.faq') as string, href: '#faq' },
     { label: t('nav.contact') as string, href: '#contact' },
   ];

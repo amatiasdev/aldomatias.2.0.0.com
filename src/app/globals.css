@@ -158,9 +158,6 @@ html.transitioning *:after {
 .navbar {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 .loader {
   border-width: 2px;
@@ -169,10 +166,6 @@ html {
 }
 .bg-green-500 {
   background-color: var(--secondary-background);
-}
-
-.bg-red-600 {
-  background-color: var(--dark-secondary-background);
 }
 
 /* Hide scrollbar but maintain functionality */

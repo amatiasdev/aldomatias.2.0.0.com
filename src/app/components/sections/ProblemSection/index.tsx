@@ -1,6 +1,7 @@
 "use client";
 
 import Typography from '@/app/components/atoms/Typography';
+import Button from '@/app/components/atoms/Button';
 import SectionWrapper from '@/app/components/templates/SectionWrapper';
 import AnimatedSection from '@/app/components/templates/AnimatedSection';
 import { useTranslation } from '@/contexts/LanguageContext';
@@ -58,6 +59,15 @@ export default function ProblemSection() {
           </AnimatedSection>
         ))}
       </div>
+
+      {/* CTA after problem */}
+      <AnimatedSection animation="fadeInUp" delay={0.5}>
+        <div className="text-center mt-12 md:mt-16">
+          <Button variant="outline" size="lg" href="#contact" className="text-lg px-10 py-4 font-bold">
+            {t('problem.cta') as string}
+          </Button>
+        </div>
+      </AnimatedSection>
     </SectionWrapper>
   );
 }

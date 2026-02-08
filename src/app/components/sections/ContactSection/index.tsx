@@ -26,6 +26,12 @@ export default function ContactSection() {
             {t('contact.trustLine') as string}
           </Typography>
           <ContactForm />
+          <Typography as="p" className="text-center text-fg-tertiary text-sm mt-8">
+            {t('contact.whatsapp') as string}{' '}
+            <a href="https://wa.me/5219511234567" className="text-accent-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+          </Typography>
         </AnimatedSection>
       </div>
     </SectionWrapper>

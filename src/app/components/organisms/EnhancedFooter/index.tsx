@@ -59,9 +59,12 @@ export default function EnhancedFooter({
             <p className="text-sm text-fg-tertiary text-center">
               {(t('footer.copyright') as string).replace('{year}', String(currentYear))}
             </p>
-            <p className="text-sm text-fg-quaternary text-center">
-              {t('footer.builtWith') as string}
-            </p>
+            <a
+              href="mailto:contacto@aldomatias.com"
+              className="text-sm text-fg-quaternary text-center hover:text-accent-500 transition-colors duration-300"
+            >
+              contacto@aldomatias.com
+            </a>
           </div>
         </div>
       </div>

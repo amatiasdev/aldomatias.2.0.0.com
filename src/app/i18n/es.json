@@ -10,10 +10,12 @@
   },
   "hero": {
     "name": "ALDO MATIAS",
-    "headline": "Elimino el trabajo manual que frena tu crecimiento",
+    "headline": "Recupera 15h semanales automatizando tus procesos manuales",
     "headlineSupport": "Automatización n8n, auditorías OWASP e infraestructura AWS — entregado en semanas, no meses.",
     "subheadline": "Automatización con n8n · Auditorías de seguridad · Infraestructura AWS",
     "proofLine": "Ex-BBVA Bank · 15h de trabajo manual eliminadas/semana · Entrega en 1–2 semanas",
+    "proofBadge": "Ex-BBVA Bank",
+    "proofMetrics": "15h de trabajo manual eliminadas/semana · Entrega en 1–2 semanas",
     "cta": "Recibe tu propuesta en 48h",
     "ctaSubtext": "Sin compromiso. Propuesta 100% gratuita.",
     "ctaSecondary": "Ver cómo funciona"
@@ -21,6 +23,7 @@
   "problem": {
     "title": "¿TE SUENA FAMILIAR?",
     "subtitle": "Cada semana sin resolver estos problemas cuesta más que solucionarlos.",
+    "cta": "Hablemos de tu caso",
     "items": [
       {
         "title": "Procesos manuales que no escalan",
@@ -89,20 +92,25 @@
     "title": "RESULTADOS COMPROBADOS",
     "stats": [
       {
-        "value": "15h",
+        "value": "15h+",
         "label": "De trabajo manual eliminadas por semana"
       },
       {
-        "value": "5+",
-        "label": "Años de experiencia"
+        "value": "3",
+        "label": "Años en BBVA Bank"
       },
       {
         "value": "100%",
-        "label": "Compliance OWASP Top 10"
+        "label": "Entregables en tiempo y alcance"
       }
     ],
+    "companiesTitle": "Empresas donde he trabajado",
     "experience": "Ex-BBVA Bank · Auditorías de seguridad en múltiples empresas · Plataformas en producción",
-    "differentiator": "No soy una agencia. Trabajo directamente contigo, sin intermediarios, con experiencia real en banca y servicios financieros."
+    "differentiator": "No soy una agencia. Trabajo directamente contigo, sin intermediarios, con experiencia real en banca y servicios financieros.",
+    "caseStudy": {
+      "title": "Plataforma de gestión WhatsApp multi-sesión",
+      "description": "Dashboard para IT-KEEPER que centraliza múltiples sesiones de WhatsApp Business. Automatización de respuestas, métricas en tiempo real y gestión de preferencias por usuario."
+    }
   },
   "process": {
     "title": "DE PROBLEMA A SOLUCIÓN EN 3 PASOS",
@@ -128,6 +136,7 @@
     "title": "CUÉNTAME SOBRE TU PROYECTO",
     "subtitle": "Completa el formulario y recibirás una propuesta en menos de 48 horas.",
     "trustLine": "Sin compromiso. Respuesta en menos de 48h.",
+    "whatsapp": "¿Prefieres escribir directamente?",
     "form": {
       "name": "Nombre",
       "namePlaceholder": "Tu nombre",
@@ -157,7 +166,8 @@
       "submitting": "Enviando...",
       "successTitle": "¡Proyecto recibido!",
       "successMessage": "Te envío una propuesta personalizada con alcance y timeline en menos de 48 horas.",
-      "sendAnother": "Enviar otro proyecto"
+      "sendAnother": "Enviar otro proyecto",
+      "connectWhileWaiting": "Mientras preparo tu propuesta, conéctate conmigo:"
     },
     "validation": {
       "nameRequired": "El nombre es obligatorio",
@@ -189,6 +199,18 @@
       {
         "question": "¿Trabajas con empresas fuera de LATAM?",
         "answer": "Sí. Trabajo 100% remoto con clientes en LATAM, Europa y Estados Unidos. Las zonas horarias no son problema: me adapto a tu horario para reuniones y entregables."
+      },
+      {
+        "question": "¿Por qué contratar un freelancer en vez de una agencia?",
+        "answer": "Comunicación directa conmigo, sin intermediarios ni overhead. Respuesta más rápida, mayor accountability, y costos significativamente menores. Tú hablas con quien ejecuta el trabajo, no con un account manager."
+      },
+      {
+        "question": "¿Qué pasa si necesito soporte después de la entrega?",
+        "answer": "Cada proyecto incluye 1 semana de soporte post-entrega. Después de eso, ofrezco soporte por horas o paquetes mensuales según necesites. La documentación incluida permite que tu equipo opere sin depender de mí."
+      },
+      {
+        "question": "¿Cómo proteges los datos de mi empresa?",
+        "answer": "Firmo NDAs antes de cada proyecto. Uso conexiones encriptadas, repositorios privados, y sigo las mejores prácticas de seguridad que aplico en auditorías OWASP. Tu información nunca se comparte con terceros."
       }
     ]
   },

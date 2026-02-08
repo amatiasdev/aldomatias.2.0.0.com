@@ -10,10 +10,12 @@
   },
   "hero": {
     "name": "ALDO MATIAS",
-    "headline": "I eliminate the manual work slowing your growth",
+    "headline": "Recover 15h every week by automating your manual processes",
     "headlineSupport": "n8n automation, OWASP audits, and AWS infrastructure — delivered in weeks, not months.",
     "subheadline": "n8n Automation \u00b7 Security Audits \u00b7 AWS Infrastructure",
     "proofLine": "Ex-BBVA Bank \u00b7 15h of manual work eliminated/week \u00b7 Delivery in 1\u20132 weeks",
+    "proofBadge": "Ex-BBVA Bank",
+    "proofMetrics": "15h of manual work eliminated/week \u00b7 Delivery in 1\u20132 weeks",
     "cta": "Get your proposal in 48h",
     "ctaSubtext": "No commitment. 100% free proposal.",
     "ctaSecondary": "See how it works"
@@ -21,6 +23,7 @@
   "problem": {
     "title": "SOUND FAMILIAR?",
     "subtitle": "Every week without fixing these costs more than the solution.",
+    "cta": "Let's talk about your case",
     "items": [
       {
         "title": "Manual processes that don't scale",
@@ -89,20 +92,25 @@
     "title": "PROVEN RESULTS",
     "stats": [
       {
-        "value": "15h",
+        "value": "15h+",
         "label": "Of manual work eliminated per week"
       },
       {
-        "value": "5+",
-        "label": "Years of experience"
+        "value": "3",
+        "label": "Years at BBVA Bank"
       },
       {
         "value": "100%",
-        "label": "OWASP Top 10 Compliance"
+        "label": "Deliverables on time and scope"
       }
     ],
+    "companiesTitle": "Companies I've worked with",
     "experience": "Ex-BBVA Bank \u00b7 Security audits across multiple companies \u00b7 Production platforms",
-    "differentiator": "I'm not an agency. I work directly with you, no middlemen, with real experience in banking and financial services."
+    "differentiator": "I'm not an agency. I work directly with you, no middlemen, with real experience in banking and financial services.",
+    "caseStudy": {
+      "title": "Multi-session WhatsApp management platform",
+      "description": "Dashboard for IT-KEEPER centralizing multiple WhatsApp Business sessions. Automated responses, real-time metrics, and per-user preference management."
+    }
   },
   "process": {
     "title": "FROM PROBLEM TO SOLUTION IN 3 STEPS",
@@ -128,6 +136,7 @@
     "title": "TELL ME ABOUT YOUR PROJECT",
     "subtitle": "Fill out the form and you'll receive a proposal in less than 48 hours.",
     "trustLine": "No commitment. Response in less than 48h.",
+    "whatsapp": "Prefer to write directly?",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name",
@@ -157,7 +166,8 @@
       "submitting": "Submitting...",
       "successTitle": "Project received!",
       "successMessage": "I'll send you a personalized proposal with scope and timeline in less than 48 hours.",
-      "sendAnother": "Submit another project"
+      "sendAnother": "Submit another project",
+      "connectWhileWaiting": "While I prepare your proposal, connect with me:"
     },
     "validation": {
       "nameRequired": "Name is required",
@@ -189,6 +199,18 @@
       {
         "question": "Do you work with companies outside LATAM?",
         "answer": "Yes. I work 100% remotely with clients in LATAM, Europe, and the United States. Time zones are not a problem: I adapt to your schedule for meetings and deliverables."
+      },
+      {
+        "question": "Why hire a freelancer instead of an agency?",
+        "answer": "Direct communication with me, no middlemen or overhead. Faster response, greater accountability, and significantly lower costs. You talk to the person doing the work, not an account manager."
+      },
+      {
+        "question": "What happens if I need support after delivery?",
+        "answer": "Every project includes 1 week of post-delivery support. After that, I offer hourly support or monthly packages as needed. The included documentation allows your team to operate without depending on me."
+      },
+      {
+        "question": "How do you protect my company's data?",
+        "answer": "I sign NDAs before each project. I use encrypted connections, private repositories, and follow the security best practices I apply in OWASP audits. Your information is never shared with third parties."
       }
     ]
   },

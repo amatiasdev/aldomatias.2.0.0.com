@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import FormField from '@/app/components/molecules/FormField';
 import Button from '@/app/components/atoms/Button';
+import SocialLinks from '@/app/components/molecules/SocialLinks';
 import { useFormValidation } from '@/app/hooks/useFormValidation';
 import { ContactFormData, ContactFormProps } from '@/app/types/components';
 import { fadeInUp } from '@/app/constants/animations';
@@ -50,14 +51,10 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
       if (!emailRegex.test(strValue)) return t('contact.validation.emailInvalid') as string;
       return undefined;
     },
-    company: (value: unknown) => {
-      const strValue = value as string;
-      if (!strValue.trim()) return t('contact.validation.companyRequired') as string;
+    company: () => {
       return undefined;
     },
-    service: (value: unknown) => {
-      const strValue = value as string;
-      if (!strValue) return t('contact.validation.serviceRequired') as string;
+    service: () => {
       return undefined;
     },
     budget: () => {
@@ -149,6 +146,12 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         <Button variant="ghost" onClick={() => setSubmitted(false)}>
           {t('contact.form.sendAnother') as string}
         </Button>
+        <div className="mt-6 pt-6 border-t border-border-subtle">
+          <Typography as="p" className="text-fg-tertiary text-sm mb-3">
+            {t('contact.form.connectWhileWaiting') as string}
+          </Typography>
+          <SocialLinks orientation="horizontal" />
+        </div>
       </motion.div>
     );
   }
@@ -217,7 +220,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           value: values.company,
           onChange: handleChange('company'),
           onBlur: handleBlur('company'),
-          required: true,
+          required: false,
         }}
         errorMessage={touched.company ? errors.company : undefined}
         showError={!!touched.company}
@@ -233,7 +236,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
             value: values.service,
             onChange: handleChange('service'),
             onBlur: handleBlur('service'),
-            required: true,
+            required: false,
             options: serviceOptions,
           }}
           errorMessage={touched.service ? errors.service : undefined}

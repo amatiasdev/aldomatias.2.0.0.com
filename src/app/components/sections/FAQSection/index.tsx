@@ -34,6 +34,7 @@ export default function FAQSection() {
             <div className="border border-border-subtle bg-bg-secondary/30">
               <button
                 type="button"
+                id={`faq-question-${index}`}
                 onClick={() => toggle(index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-bg-secondary/50 transition-colors duration-200"
                 aria-expanded={openIndex === index}
@@ -55,6 +56,8 @@ export default function FAQSection() {
               <div
                 id={`faq-answer-${index}`}
                 role="region"
+                aria-labelledby={`faq-question-${index}`}
+                aria-hidden={openIndex !== index}
                 className={`overflow-hidden transition-all duration-200 ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="px-6 pb-6">

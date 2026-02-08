@@ -34,7 +34,7 @@ export default function FooterColumn({
       ) : (
         <ul className="space-y-2" role="list">
           {links.map((link, index) => (
-            <li key={link.href || `link-${index}`}>
+            <li key={`${link.href}-${index}`}>
               {link.onClick ? (
                 <button
                   onClick={link.onClick}

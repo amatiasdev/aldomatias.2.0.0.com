@@ -80,6 +80,9 @@ export default function ServicesSection() {
                 <Typography as="p" className="text-sm text-accent-500/80 italic">
                   {service.hook}
                 </Typography>
+                <Button variant="ghost" size="sm" href="#contact" className="mt-4">
+                  {t('services.cta') as string}
+                </Button>
               </div>
             </div>
           </AnimatedSection>

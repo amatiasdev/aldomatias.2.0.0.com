@@ -13,11 +13,17 @@ interface StatItem {
   label: string;
 }
 
+interface CaseStudy {
+  title: string;
+  description: string;
+}
+
 const techStack = ['AWS', 'n8n', 'Docker', 'Node.js', 'React', 'OWASP'];
 
 export default function CredibilitySection() {
   const { t } = useTranslation();
   const stats = t('credibility.stats') as StatItem[];
+  const caseStudy = t('credibility.caseStudy') as CaseStudy;
 
   return (
     <SectionWrapper background="warm" padding="xl" id="credibility">
@@ -36,13 +42,29 @@ export default function CredibilitySection() {
         ))}
       </div>
 
+      {/* Companies logo bar */}
+      <AnimatedSection animation="fadeInUp" delay={0.2}>
+        <div className="text-center mb-10">
+          <Typography as="p" className="text-fg-tertiary text-sm uppercase tracking-wider mb-6">
+            {t('credibility.companiesTitle') as string}
+          </Typography>
+          <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-60">
+            <Image src="/bbva-logo.png" alt="BBVA Bank" width={48} height={48} className="rounded" />
+            <Image src="/IT-KEEPER-logo.png" alt="IT-KEEPER" width={48} height={48} className="rounded" />
+            <Image src="/AHEA-logo.png" alt="AHEA University" width={48} height={48} className="rounded" />
+            <Image src="/ksh.png" alt="Kristal Software House" width={48} height={48} className="rounded" />
+            <Image src="/admon-oaxaca.jpg" alt="Gobierno de Oaxaca" width={48} height={48} className="rounded" />
+          </div>
+        </div>
+      </AnimatedSection>
+
       {/* Experience line with BBVA logo */}
       <AnimatedSection animation="fadeInUp" delay={0.3}>
         <div className="flex flex-col items-center gap-6 mb-10">
           <div className="flex items-center gap-4">
             <Image
               src="/bbva-logo.png"
-              alt="BBVA Bank — experiencia en banca y servicios financieros"
+              alt="BBVA Bank"
               width={80}
               height={80}
               className="rounded"
@@ -63,8 +85,29 @@ export default function CredibilitySection() {
         </div>
       </AnimatedSection>
 
-      {/* Tech Stack */}
+      {/* Micro case study */}
       <AnimatedSection animation="fadeInUp" delay={0.4}>
+        <div className="max-w-2xl mx-auto mb-10 border border-border-subtle bg-bg-secondary/30 overflow-hidden">
+          <Image
+            src="/whatsappsummary-dashboard.png"
+            alt="WhatsApp Management Platform"
+            width={800}
+            height={400}
+            className="w-full"
+          />
+          <div className="p-6">
+            <Typography as="p" className="text-fg-primary font-semibold mb-2">
+              {caseStudy.title}
+            </Typography>
+            <Typography as="p" className="text-fg-tertiary text-sm leading-relaxed">
+              {caseStudy.description}
+            </Typography>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Tech Stack */}
+      <AnimatedSection animation="fadeInUp" delay={0.45}>
         <div className="flex flex-wrap justify-center gap-3">
           {techStack.map((tech) => (
             <Badge key={tech} variant="accent" size="sm">

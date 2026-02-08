@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
@@ -10,6 +11,17 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+      >
+        <source src="/aldo-bg.mp4" type="video/mp4" />
+      </video>
+
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-bg-primary via-bg-primary to-accent-500/10" />
 
@@ -31,11 +43,27 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 pt-20 max-w-5xl mx-auto">
+        {/* Circular photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src="/aldo-matias.jpg"
+            alt="Aldo Matias"
+            width={120}
+            height={120}
+            className="rounded-full mx-auto mb-6 border-2 border-accent-500/30"
+            priority
+          />
+        </motion.div>
+
         {/* Name - eyebrow label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Typography as="p" className="text-sm sm:text-base font-medium uppercase tracking-[0.2em] text-fg-tertiary mb-6">
             {t('hero.name') as string}
@@ -53,40 +81,36 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <Typography as="p" className="text-fg-secondary text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+          <Typography as="p" className="text-fg-secondary text-lg md:text-xl mb-8 max-w-3xl mx-auto">
             {t('hero.headlineSupport') as string}
           </Typography>
         </motion.div>
 
-        {/* Subheadline - Services */}
+        {/* Proof line with BBVA logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <Typography as="p" className="text-accent-500 text-lg md:text-xl lg:text-2xl font-semibold mb-3">
-            {t('hero.subheadline') as string}
-          </Typography>
-        </motion.div>
-
-        {/* Proof line */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <Typography as="p" className="text-fg-tertiary font-medium text-base md:text-lg mb-10">
-            {t('hero.proofLine') as string}
-          </Typography>
+          <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
+            <Image src="/bbva-logo.png" alt="BBVA Bank" width={28} height={28} className="rounded opacity-70" />
+            <Typography as="p" className="text-fg-secondary font-medium text-base md:text-lg">
+              {t('hero.proofBadge') as string}
+            </Typography>
+            <span className="text-fg-tertiary">·</span>
+            <Typography as="p" className="text-fg-secondary font-medium text-base md:text-lg">
+              {t('hero.proofMetrics') as string}
+            </Typography>
+          </div>
         </motion.div>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="flex flex-col items-center"
         >
           <Button
@@ -97,7 +121,7 @@ export default function HeroSection() {
           >
             {t('hero.cta') as string}
           </Button>
-          <Typography as="p" className="text-fg-tertiary text-sm mt-4">
+          <Typography as="p" className="text-fg-secondary text-sm mt-4">
             {t('hero.ctaSubtext') as string}
           </Typography>
           <Button

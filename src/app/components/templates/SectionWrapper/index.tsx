@@ -13,13 +13,13 @@ export default function SectionWrapper({
   const backgrounds = {
     white: 'bg-white',
     dark: 'bg-black',
-    darker: 'bg-black',
-    darkest: 'bg-black',
-    charcoal: 'bg-black',
-    slate: 'bg-black',
-    warm: 'bg-black',
-    gradient: 'bg-black',
-    gradientWarm: 'bg-black',
+    darker: 'bg-[#050505]',
+    darkest: 'bg-[#030303]',
+    charcoal: 'bg-[#0a0a0a]',
+    slate: 'bg-[#0d0d0d]',
+    warm: 'bg-[#0a0a0a]',
+    gradient: 'bg-gradient-to-b from-black to-[#0a0a0a]',
+    gradientWarm: 'bg-gradient-to-b from-[#0a0a0a] to-black',
   };
 
   const paddings = {
