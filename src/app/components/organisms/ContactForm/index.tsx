@@ -109,6 +109,12 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
 
       setSubmitted(true);
       resetForm();
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'contact',
+          event_label: values.service || 'general',
+        });
+      }
       onSuccess?.();
     } catch (error) {
       let errorMessage: string;

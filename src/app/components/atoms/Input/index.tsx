@@ -40,6 +40,7 @@ export default function Input({
       {type === 'select' && options ? (
         <select
           id={id}
+          name={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
@@ -69,6 +70,7 @@ export default function Input({
       ) : type === 'textarea' ? (
         <textarea
           id={id}
+          name={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
@@ -84,6 +86,7 @@ export default function Input({
       ) : (
         <input
           id={id}
+          name={id}
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}

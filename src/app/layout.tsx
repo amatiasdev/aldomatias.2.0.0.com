@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -93,11 +94,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://aldomatias.com',
-    languages: {
-      'es': 'https://aldomatias.com',
-      'en': 'https://aldomatias.com',
-      'x-default': 'https://aldomatias.com',
-    },
   },
   openGraph: {
     type: 'website',
@@ -137,6 +133,18 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Aldo Matias" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-V3CZ6PF3Q8"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-V3CZ6PF3Q8');
+          `}
+        </Script>
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />

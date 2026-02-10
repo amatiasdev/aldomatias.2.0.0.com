@@ -11,17 +11,6 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-      >
-        <source src="/aldo-bg.mp4" type="video/mp4" />
-      </video>
-
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-bg-primary via-bg-primary to-accent-500/10" />
 
