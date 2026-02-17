@@ -1,13 +1,11 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Typography from '@/app/components/atoms/Typography';
 import Badge from '@/app/components/atoms/Badge';
 import StatCard from '@/app/components/molecules/StatCard';
 import ImageGalleryPreview from '@/app/components/molecules/ImageGalleryPreview';
 import { Job } from '@/app/types/domain';
-import { cardHover } from '@/app/constants/animations';
 
 interface JobCardProps {
   job: Job;
@@ -16,9 +14,8 @@ interface JobCardProps {
 
 export default function JobCard({ job }: JobCardProps) {
   return (
-    <motion.div
-      className="bg-white dark:bg-black border-2 border-border-default p-6 md:p-8 transition-all duration-300 hover:border-accent-500"
-      {...cardHover}
+    <div
+      className="bg-white dark:bg-black border-2 border-border-default p-6 md:p-8 transition-all duration-300 hover:border-accent-500 hover:-translate-y-1"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div className="flex-1">
@@ -108,6 +105,6 @@ export default function JobCard({ job }: JobCardProps) {
           ))}
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }

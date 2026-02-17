@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode, MouseEvent } from 'react';
-import { motion } from 'framer-motion';
 
 interface IconButtonProps {
   icon: ReactNode;
@@ -22,7 +21,7 @@ export default function IconButton({
   disabled,
   type = 'button',
 }: IconButtonProps) {
-  const baseStyles = "p-3 rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "p-3 rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95";
 
   const variantStyles = {
     primary: "bg-accent-500 text-fg-inverse hover:bg-accent-600",
@@ -31,9 +30,7 @@ export default function IconButton({
   };
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+    <button
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       aria-label={label}
       onClick={onClick}
@@ -41,6 +38,6 @@ export default function IconButton({
       type={type}
     >
       {icon}
-    </motion.button>
+    </button>
   );
 }

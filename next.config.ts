@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
   experimental: {
     // Optimize package imports to reduce bundle size
     optimizePackageImports: [
-      'framer-motion',
       'lucide-react',
       '@heroicons/react',
     ],

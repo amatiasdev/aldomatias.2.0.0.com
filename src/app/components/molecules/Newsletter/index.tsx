@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
 
@@ -74,23 +73,15 @@ export default function Newsletter({
         </Button>
 
         {status === 'error' && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs text-red-500"
-          >
+          <p className="text-xs text-red-500 animate-fade-in-up">
             Please enter a valid email address
-          </motion.p>
+          </p>
         )}
 
         {status === 'success' && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs text-accent-500"
-          >
+          <p className="text-xs text-accent-500 animate-fade-in-up">
             Thanks for subscribing!
-          </motion.p>
+          </p>
         )}
       </form>
     </div>

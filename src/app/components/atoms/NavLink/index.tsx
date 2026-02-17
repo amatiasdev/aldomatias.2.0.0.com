@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 interface NavLinkProps {
@@ -20,7 +19,7 @@ export default function NavLink({
   className = '',
   external = false,
 }: NavLinkProps) {
-  const baseClasses = 'relative uppercase tracking-[0.08em] text-sm font-semibold transition-colors duration-300 py-2 px-1';
+  const baseClasses = 'relative uppercase tracking-[0.08em] text-sm font-semibold transition-colors duration-300 py-2 px-1 group';
   const colorClasses = isActive
     ? 'text-accent-500'
     : 'text-fg-secondary hover:text-fg-primary';
@@ -28,12 +27,10 @@ export default function NavLink({
   const content = (
     <>
       <span className="relative z-10">{children}</span>
-      <motion.span
-        className="absolute bottom-0 left-0 h-0.5 bg-accent-500"
-        initial={{ width: 0 }}
-        animate={{ width: isActive ? '100%' : 0 }}
-        whileHover={{ width: '100%' }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      <span
+        className={`absolute bottom-0 left-0 h-0.5 bg-accent-500 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full ${
+          isActive ? 'w-full' : 'w-0'
+        }`}
       />
     </>
   );

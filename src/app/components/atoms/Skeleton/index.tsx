@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
-
 export interface SkeletonProps {
   variant?: 'text' | 'circular' | 'rectangular' | 'card';
   width?: string | number;
@@ -41,22 +39,10 @@ export default function Skeleton({
     height: typeof finalHeight === 'number' ? `${finalHeight}px` : finalHeight,
   };
 
-  const Component = animate ? motion.div : 'div';
-
   return (
-    <Component
-      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+    <div
+      className={`${baseClasses} ${variantClasses[variant]} ${animate ? 'animate-pulse' : ''} ${className}`}
       style={skeletonStyles}
-      {...(animate && {
-        animate: {
-          opacity: [0.5, 1, 0.5],
-        },
-        transition: {
-          duration: 1.5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        },
-      })}
       aria-busy="true"
       aria-live="polite"
     />

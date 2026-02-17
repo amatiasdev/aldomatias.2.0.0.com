@@ -40,7 +40,7 @@ export default function LanguageSelector({ className = "" }: { className?: strin
               onClick={() => setLocale(code)}
               className={`
                 uppercase tracking-[0.08em] text-sm font-semibold
-                transition-colors duration-300 py-1 px-0.5
+                py-1 px-0.5
                 ${
                   isActive
                     ? "text-accent-500"

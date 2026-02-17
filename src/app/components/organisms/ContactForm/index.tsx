@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import FormField from '@/app/components/molecules/FormField';
 import Button from '@/app/components/atoms/Button';
 import SocialLinks from '@/app/components/molecules/SocialLinks';
 import { useFormValidation } from '@/app/hooks/useFormValidation';
 import { ContactFormData, ContactFormProps } from '@/app/types/components';
-import { fadeInUp } from '@/app/constants/animations';
 
 import { useTranslation } from '@/contexts/LanguageContext';
 
@@ -135,11 +133,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
 
   if (submitted) {
     return (
-      <motion.div
-        className="bg-bg-secondary border-2 border-accent-500 p-8 text-center"
-        variants={fadeInUp}
-        initial="initial"
-        animate="animate"
+      <div
+        className="bg-bg-secondary border-2 border-accent-500 p-8 text-center animate-fade-in-up"
         role="status"
         aria-live="polite"
         aria-atomic="true"
@@ -159,7 +154,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           </Typography>
           <SocialLinks orientation="horizontal" />
         </div>
-      </motion.div>
+      </div>
     );
   }
 

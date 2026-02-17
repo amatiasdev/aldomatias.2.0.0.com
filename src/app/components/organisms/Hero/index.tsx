@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
-import { fadeInUp, staggerContainer } from '@/app/constants/animations';
 
 interface HeroProps {
   title: string;
@@ -29,62 +27,42 @@ export default function Hero({
   ctaSecondary,
 }: HeroProps) {
   return (
-    <motion.div
+    <div
       className="min-h-screen flex items-center justify-center text-center px-6 -mt-16 sm:-mt-20 relative overflow-hidden"
-      initial="initial"
-      animate="animate"
-      variants={staggerContainer}
     >
       {/* Subtle background animation */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-accent-500/5 via-transparent to-accent-500/5"
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 via-transparent to-accent-500/5 animate-bg-pulse" />
 
       <div className="max-w-7xl relative z-10">
-        <motion.div variants={fadeInUp}>
+        <div className="animate-hero-stagger-1">
           <h1
             className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6 sm:mb-8 bg-gradient-to-br from-fg-primary via-fg-secondary to-accent-500 bg-clip-text text-transparent leading-[0.9]"
           >
             {title}
           </h1>
-        </motion.div>
+        </div>
 
         {subtitle && (
-          <motion.div variants={fadeInUp}>
+          <div className="animate-hero-stagger-2">
             <Typography
               as="h2"
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-accent-500 mb-8 sm:mb-10 tracking-tight uppercase"
             >
               {subtitle}
             </Typography>
-          </motion.div>
+          </div>
         )}
 
-        <motion.div variants={fadeInUp}>
+        <div className="animate-hero-stagger-3">
           <Typography as="p" className="text-fg-secondary text-lg md:text-xl lg:text-2xl mb-16 max-w-4xl mx-auto leading-relaxed">
             {description}
           </Typography>
-        </motion.div>
+        </div>
 
         {(ctaPrimary || ctaSecondary) && (
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-          >
+          <div className="animate-hero-stagger-4 flex flex-col sm:flex-row gap-6 justify-center items-center">
             {ctaPrimary && (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <div className="hover:scale-105 active:scale-95 transition-transform">
                 <Button
                   variant="primary"
                   size="lg"
@@ -94,13 +72,10 @@ export default function Hero({
                 >
                   {ctaPrimary.label}
                 </Button>
-              </motion.div>
+              </div>
             )}
             {ctaSecondary && (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <div className="hover:scale-105 active:scale-95 transition-transform">
                 <Button
                   variant="outline"
                   size="lg"
@@ -110,11 +85,11 @@ export default function Hero({
                 >
                   {ctaSecondary.label}
                 </Button>
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

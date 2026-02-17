@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { useTheme } from '@/app/hooks/useTheme';
 
 interface ThemeToggleProps {
@@ -93,29 +92,21 @@ export default function ThemeToggle({ className = '', showLabel = false }: Theme
   };
 
   return (
-    <motion.button
+    <button
       onClick={cycleTheme}
-      className={`relative inline-flex items-center gap-2 w-10 h-10 rounded-sm bg-bg-tertiary hover:bg-bg-elevated transition-colors duration-200 justify-center ${className}`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      className={`relative inline-flex items-center gap-2 w-10 h-10 rounded-sm bg-bg-tertiary hover:bg-bg-elevated transition-all duration-200 justify-center hover:scale-105 active:scale-95 ${className}`}
       aria-label={`Current theme: ${getLabel()}. Click to switch to ${getNextTheme()} mode.`}
       aria-live="polite"
       title={`Theme: ${getLabel()} (click to cycle)`}
     >
-      <motion.div
-        key={theme}
-        initial={{ rotate: -180, opacity: 0 }}
-        animate={{ rotate: 0, opacity: 1 }}
-        exit={{ rotate: 180, opacity: 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      >
+      <div key={theme} className="animate-theme-icon-swap">
         {getIcon()}
-      </motion.div>
+      </div>
       {showLabel && (
         <span className="text-xs font-medium text-fg-secondary">
           {getLabel()}
         </span>
       )}
-    </motion.button>
+    </button>
   );
 }

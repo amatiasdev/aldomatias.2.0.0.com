@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '@/app/components/atoms/Icon';
 
 export interface ToastProps {
@@ -33,24 +32,35 @@ export default function Toast({
   duration = 5000,
   className = '',
 }: ToastProps) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger enter animation on next frame
+    requestAnimationFrame(() => setVisible(true));
+  }, []);
+
   useEffect(() => {
     if (duration > 0 && onClose) {
       const timer = setTimeout(() => {
-        onClose();
+        setVisible(false);
+        setTimeout(onClose, 200);
       }, duration);
 
       return () => clearTimeout(timer);
     }
   }, [duration, onClose]);
 
+  const handleClose = () => {
+    setVisible(false);
+    setTimeout(() => onClose?.(), 200);
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.95 }}
-      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className={`
         flex items-center gap-3 px-4 py-3 border-2 rounded-sm backdrop-blur-sm
+        transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]
+        ${visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-5 scale-95'}
         ${variantStyles[variant]}
         ${className}
       `}
@@ -63,14 +73,14 @@ export default function Toast({
 
       {onClose && (
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="p-1 hover:opacity-70 transition-opacity"
           aria-label="Close notification"
         >
           <Icon name="close" size={16} />
         </button>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -105,15 +115,13 @@ export function ToastContainer({
         ${positionStyles[position]}
       `}
     >
-      <AnimatePresence mode="popLayout">
-        {toasts.map((toast) => (
-          <Toast
-            key={toast.id}
-            {...toast}
-            onClose={() => onRemove(toast.id)}
-          />
-        ))}
-      </AnimatePresence>
+      {toasts.map((toast) => (
+        <Toast
+          key={toast.id}
+          {...toast}
+          onClose={() => onRemove(toast.id)}
+        />
+      ))}
     </div>
   );
 }

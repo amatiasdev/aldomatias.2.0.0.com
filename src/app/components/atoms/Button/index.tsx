@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ButtonProps } from '@/app/types/components';
-import { buttonPress } from '@/app/constants/animations';
 
 export default function Button({
   variant = 'primary',
@@ -17,7 +15,7 @@ export default function Button({
   ariaLabel,
   href,
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary disabled:opacity-50 disabled:cursor-not-allowed rounded-sm relative overflow-hidden group';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary disabled:opacity-50 disabled:cursor-not-allowed rounded-sm relative overflow-hidden group active:scale-[0.98]';
 
   const variants = {
     primary: 'bg-accent-500 text-fg-inverse border-2 border-accent-500 hover:bg-accent-600 hover:border-accent-600 shadow-lg hover:shadow-accent transform hover:-translate-y-0.5',
@@ -37,11 +35,7 @@ export default function Button({
   const content = (
     <>
       {loading && (
-        <motion.div
-          className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-        />
+        <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
       )}
       {children}
     </>
@@ -50,16 +44,15 @@ export default function Button({
   // If has onClick, render as button (even if it also has href)
   if (onClick) {
     return (
-      <motion.button
+      <button
         type={type}
         onClick={onClick}
         disabled={disabled || loading}
         className={classes}
         aria-label={ariaLabel}
-        whileTap={!disabled ? buttonPress.whileTap : {}}
       >
         {content}
-      </motion.button>
+      </button>
     );
   }
 
@@ -74,14 +67,13 @@ export default function Button({
 
   // Default: render as button without onClick
   return (
-    <motion.button
+    <button
       type={type}
       disabled={disabled || loading}
       className={classes}
       aria-label={ariaLabel}
-      whileTap={!disabled ? buttonPress.whileTap : {}}
     >
       {content}
-    </motion.button>
+    </button>
   );
 }

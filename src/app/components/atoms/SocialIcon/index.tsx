@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Icon from '@/app/components/atoms/Icon';
 
 export type SocialPlatform = 'github' | 'linkedin' | 'leetcode' | 'email' | 'twitter' | 'facebook';
@@ -56,13 +55,11 @@ export default function SocialIcon({
   const config = platformConfig[platform];
 
   return (
-    <motion.a
+    <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 text-fg-tertiary hover:text-accent-500 transition-colors duration-300 group ${className}`}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      className={`inline-flex items-center gap-2 text-fg-tertiary hover:text-accent-500 transition-all duration-300 group hover:scale-110 active:scale-95 ${className}`}
       aria-label={config.ariaLabel}
     >
       <Icon
@@ -75,6 +72,6 @@ export default function SocialIcon({
           {config.label}
         </span>
       )}
-    </motion.a>
+    </a>
   );
 }

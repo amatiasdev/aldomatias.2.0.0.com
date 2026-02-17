@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollDirection } from '@/app/hooks/useScrollDirection';
 import NavBrand from '@/app/components/molecules/NavBrand';
 import NavMenu from '@/app/components/molecules/NavMenu';
@@ -36,7 +35,7 @@ export default function Navbar({
 
   const navbarStyle = getNavbarStyle();
 
-  const baseClasses = 'fixed top-0 left-0 right-0 z-50 transition-all duration-300';
+  const baseClasses = 'fixed top-0 left-0 right-0 z-50 transition-transform duration-300';
   const styleClasses = navbarStyle === 'solid'
     ? 'bg-bg-primary/90 backdrop-blur-md border-b border-border-subtle'
     : 'bg-transparent';
@@ -77,11 +76,9 @@ export default function Navbar({
 
   return (
     <>
-      <motion.header
+      <header
         className={`${baseClasses} ${styleClasses} ${className}`}
-        initial={{ y: 0 }}
-        animate={{ y: shouldHide ? '-100%' : 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transform: shouldHide ? 'translateY(-100%)' : 'translateY(0)' }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex items-center justify-between h-20">
@@ -110,41 +107,32 @@ export default function Navbar({
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
               >
-                <motion.span
-                  className="w-6 h-0.5 bg-fg-primary"
-                  animate={{
-                    rotate: isMenuOpen ? 45 : 0,
-                    y: isMenuOpen ? 8 : 0,
+                <span
+                  className="w-6 h-0.5 bg-fg-primary transition-transform duration-300"
+                  style={{
+                    transform: isMenuOpen ? 'rotate(45deg) translateY(8px)' : 'none',
                   }}
-                  transition={{ duration: 0.3 }}
                 />
-                <motion.span
-                  className="w-6 h-0.5 bg-fg-primary"
-                  animate={{
-                    opacity: isMenuOpen ? 0 : 1,
-                  }}
-                  transition={{ duration: 0.2 }}
+                <span
+                  className="w-6 h-0.5 bg-fg-primary transition-opacity duration-200"
+                  style={{ opacity: isMenuOpen ? 0 : 1 }}
                 />
-                <motion.span
-                  className="w-6 h-0.5 bg-fg-primary"
-                  animate={{
-                    rotate: isMenuOpen ? -45 : 0,
-                    y: isMenuOpen ? -8 : 0,
+                <span
+                  className="w-6 h-0.5 bg-fg-primary transition-transform duration-300"
+                  style={{
+                    transform: isMenuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none',
                   }}
-                  transition={{ duration: 0.3 }}
                 />
               </button>
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <MobileMenu onClose={() => setIsMenuOpen(false)} />
-        )}
-      </AnimatePresence>
+      {isMenuOpen && (
+        <MobileMenu onClose={() => setIsMenuOpen(false)} />
+      )}
     </>
   );
 }
@@ -153,33 +141,16 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation();
 
   return (
-    <motion.div
+    <div
       id="mobile-menu"
-      className="fixed inset-0 z-40 lg:hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-40 lg:hidden animate-fade-in"
     >
-      <motion.div
+      <div
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
       />
 
-      <motion.div
-        className="absolute top-20 left-0 right-0 bottom-0 bg-bg-primary border-t border-border-subtle overflow-y-auto"
-        initial={{ y: '-100%' }}
-        animate={{ y: 0 }}
-        exit={{ y: '-100%' }}
-        transition={{
-          type: 'spring',
-          damping: 30,
-          stiffness: 300,
-        }}
-      >
+      <div className="absolute top-20 left-0 right-0 bottom-0 bg-bg-primary border-t border-border-subtle overflow-y-auto animate-slide-down">
         <div className="px-6 py-8 space-y-8">
           <NavMenu
             onItemClick={onClose}
@@ -200,7 +171,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             {t('cta.getInTouch') as string}
           </Button>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
