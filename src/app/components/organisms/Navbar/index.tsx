@@ -91,7 +91,7 @@ export default function Navbar({
               <div className="flex items-center gap-4">
                 <LanguageSelector />
                 <SocialLinks size={18} />
-                <Button variant="primary" size="md" href="#contact">
+                <Button variant="primary" size="md" href="/#contact">
                   {t('cta.getInTouch') as string}
                 </Button>
               </div>
@@ -164,7 +164,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           <Button
             variant="primary"
             size="lg"
-            href="#contact"
+            href="/#contact"
             onClick={onClose}
             className="w-full"
           >

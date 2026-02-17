@@ -211,8 +211,187 @@
       {
         "question": "¿Cómo proteges los datos de mi empresa?",
         "answer": "Firmo NDAs antes de cada proyecto. Uso conexiones encriptadas, repositorios privados, y sigo las mejores prácticas de seguridad que aplico en auditorías OWASP. Tu información nunca se comparte con terceros."
+      },
+      {
+        "question": "¿Cuánto cuesta una auditoría de seguridad OWASP?",
+        "answer": "El costo depende del alcance: número de aplicaciones, APIs y configuraciones cloud a revisar. Envía los detalles de tu proyecto y recibirás una propuesta personalizada con precio exacto en 48 horas. Sin compromiso."
+      },
+      {
+        "question": "¿Qué es n8n y por qué usarlo para automatizar?",
+        "answer": "n8n es una plataforma de automatización de código abierto que conecta tus herramientas (WhatsApp, CRM, email, bases de datos) con flujos visuales. A diferencia de Zapier o Make, n8n se puede hospedar en tu propia infraestructura, dándote control total sobre tus datos y sin límites de ejecuciones."
+      },
+      {
+        "question": "¿Puedo automatizar WhatsApp con n8n?",
+        "answer": "Sí. n8n se integra con la API de WhatsApp Business para automatizar respuestas, enviar notificaciones, sincronizar conversaciones con tu CRM y generar reportes automáticos de datos de chat. Es una de las automatizaciones más solicitadas."
+      },
+      {
+        "question": "¿Cuál es la diferencia entre contratar un freelancer y una agencia?",
+        "answer": "Con un freelancer hablas directamente con quien ejecuta el trabajo. Sin intermediarios, sin overhead de agencia, con mayor velocidad de respuesta y costos significativamente menores. Para proyectos de alcance definido (automatización, auditoría, infraestructura), un freelancer especializado entrega resultados más rápido que una agencia generalista."
+      },
+      {
+        "question": "¿En qué países trabajas?",
+        "answer": "Trabajo 100% remoto con clientes en México, LATAM, Europa y Estados Unidos. Me adapto a tu zona horaria para reuniones y entregables. La mayoría de mis clientes están en México y LATAM, pero atiendo proyectos de cualquier parte del mundo."
       }
     ]
+  },
+  "industries": {
+    "title": "SECTORES QUE ATIENDO",
+    "subtitle": "Experiencia aplicada a tu industria",
+    "items": [
+      {
+        "name": "Fintech y Banca",
+        "description": "Automatización de reportes regulatorios, auditorías de seguridad PCI-DSS, infraestructura cloud con compliance financiero."
+      },
+      {
+        "name": "SaaS y Startups",
+        "description": "Workflows de onboarding automatizado, alertas de seguridad proactivas, infraestructura escalable desde día uno."
+      },
+      {
+        "name": "E-commerce",
+        "description": "Sincronización de inventario entre plataformas, notificaciones WhatsApp a clientes, protección contra fraude y vulnerabilidades."
+      },
+      {
+        "name": "Servicios Profesionales",
+        "description": "CRM automatizado, generación de reportes para clientes, protección de datos sensibles y compliance."
+      },
+      {
+        "name": "Manufactura y Logística",
+        "description": "Automatización de cadena de suministro, monitoreo de infraestructura IoT, seguridad de sistemas industriales."
+      },
+      {
+        "name": "Educación",
+        "description": "Automatización de comunicaciones con estudiantes, protección de datos personales, plataformas cloud escalables."
+      }
+    ]
+  },
+  "servicePages": {
+    "n8n": {
+      "name": "AUTOMATIZACIÓN N8N PARA EMPRESAS",
+      "tagline": "Operaciones en Autopilot",
+      "heroDescription": "Elimino horas de trabajo manual cada semana con flujos de automatización n8n que trabajan 24/7. Respuestas automáticas en WhatsApp, sincronización de CRM sin intervención, reportes que se generan solos, y notificaciones inteligentes que mantienen a tu equipo informado sin esfuerzo. Diseñado para empresas en México y remoto que quieren escalar sin aumentar headcount.",
+      "problemTitle": "EL PROBLEMA CON LOS PROCESOS MANUALES",
+      "problemDescription": "Tu equipo pasa horas cada semana copiando datos entre sistemas, enviando mensajes repetitivos, generando reportes manualmente y haciendo seguimiento a tareas que podrían estar automatizadas. Cada nuevo cliente significa más trabajo manual. Cada error manual significa tiempo perdido corrigiendo. Y cada proceso sin documentar significa que cuando alguien se va, el conocimiento se pierde. La automatización no es un lujo — es la diferencia entre un equipo que crece y uno que se estanca.",
+      "solutionTitle": "LA SOLUCIÓN: FLUJOS N8N QUE TRABAJAN POR TI",
+      "solutionDescription": "Diseño e implemento flujos de automatización con n8n que conectan tus herramientas existentes: WhatsApp Business, CRM (HubSpot, Salesforce, Pipedrive), Google Sheets, bases de datos, email, Slack, y más de 400 integraciones. Cada flujo se configura, prueba y documenta para que tu equipo lo entienda y pueda modificarlo si es necesario. Sin código, sin dependencia permanente de un desarrollador.",
+      "includes": [
+        "Flujos n8n configurados y probados en tu entorno",
+        "Integración con tus herramientas existentes (WhatsApp, CRM, email)",
+        "Documentación técnica paso a paso con capturas",
+        "Notificaciones de error configuradas",
+        "1 semana de soporte post-entrega incluida",
+        "Capacitación básica para tu equipo"
+      ],
+      "includesTitle": "QUÉ INCLUYE EL SERVICIO",
+      "deliveryTime": "3–7 días",
+      "hook": "Empezamos con 1 flujo. Si funciona, escalamos.",
+      "faqTitle": "PREGUNTAS SOBRE AUTOMATIZACIÓN N8N",
+      "faqs": [
+        {
+          "question": "¿Cuánto tiempo toma implementar un flujo n8n?",
+          "answer": "3–7 días para flujos estándar como respuestas WhatsApp o sincronización CRM. Proyectos complejos con múltiples integraciones toman hasta 2 semanas. Recibes avances cada 3 días."
+        },
+        {
+          "question": "¿Necesito conocimiento técnico para mantener la automatización?",
+          "answer": "No. Cada entregable incluye documentación paso a paso con capturas de pantalla. Además, tienes 1 semana de soporte donde resuelvo dudas y ajusto lo que necesites."
+        },
+        {
+          "question": "¿Puedo automatizar WhatsApp con n8n?",
+          "answer": "Sí. n8n se integra con la API de WhatsApp Business para automatizar respuestas, enviar notificaciones, sincronizar conversaciones con tu CRM y generar reportes automáticos de datos de chat."
+        },
+        {
+          "question": "¿Qué pasa si un flujo falla después de la entrega?",
+          "answer": "Cada proyecto incluye 1 semana de soporte post-entrega. También configuro notificaciones de error para que sepas inmediatamente si algo necesita atención. La documentación cubre los pasos de troubleshooting más comunes."
+        }
+      ],
+      "relatedTitle": "OTROS SERVICIOS",
+      "finalCta": "¿LISTO PARA AUTOMATIZAR TUS PROCESOS?",
+      "cta": "Recibe tu propuesta en 48h"
+    },
+    "security": {
+      "name": "AUDITORÍA DE SEGURIDAD OWASP",
+      "tagline": "Blindaje Express",
+      "heroDescription": "Encuentro las vulnerabilidades que hackean empresas antes de que alguien más lo haga. Revisión completa OWASP Top 10, análisis de configuración cloud, y reporte ejecutivo con prioridad y plan de acción concreto. Para empresas en México y remoto que manejan datos sensibles y necesitan certeza de que están protegidas.",
+      "problemTitle": "EL RIESGO DE NO SABER TUS VULNERABILIDADES",
+      "problemDescription": "Una sola brecha de datos puede costarte meses de trabajo, reputación con clientes, y en algunos casos multas regulatorias. El problema es que la mayoría de las empresas no saben qué vulnerabilidades tienen hasta que ya es tarde. Las configuraciones de cloud se acumulan sin revisión, las dependencias de código se desactualizan, y los controles de acceso se vuelven cada vez más laxos con cada empleado nuevo. No necesitas paranoia — necesitas visibilidad. Un audit profesional te da exactamente eso: un mapa claro de riesgos con prioridades y acciones concretas.",
+      "solutionTitle": "LA SOLUCIÓN: AUDITORÍA OWASP PROFESIONAL",
+      "solutionDescription": "Ejecuto una revisión completa basada en OWASP Top 10, el estándar de la industria para seguridad de aplicaciones web. Reviso tu aplicación, APIs, configuración cloud, y controles de acceso. El resultado es un reporte ejecutivo en PDF con cada vulnerabilidad clasificada por severidad, evidencia técnica, y pasos exactos de remediación que tu equipo puede seguir.",
+      "includes": [
+        "Análisis completo OWASP Top 10",
+        "Revisión de configuración cloud (AWS, Azure, GCP)",
+        "Reporte ejecutivo PDF con evidencia técnica",
+        "Clasificación de vulnerabilidades por severidad",
+        "Plan de remediación priorizado",
+        "Remediación de vulnerabilidades críticas incluida"
+      ],
+      "includesTitle": "QUÉ INCLUYE LA AUDITORÍA",
+      "deliveryTime": "5–10 días",
+      "hook": "Recibes el reporte aunque no contrates la remediación completa.",
+      "faqTitle": "PREGUNTAS SOBRE AUDITORÍA DE SEGURIDAD",
+      "faqs": [
+        {
+          "question": "¿Cuánto cuesta una auditoría de seguridad OWASP?",
+          "answer": "El costo depende del alcance: número de aplicaciones, APIs y configuraciones cloud a revisar. Envía los detalles de tu proyecto y recibirás una propuesta personalizada con precio exacto en 48 horas. Sin compromiso."
+        },
+        {
+          "question": "¿Qué incluye una auditoría OWASP Top 10?",
+          "answer": "Revisión completa de los 10 riesgos de seguridad más críticos: inyección, autenticación rota, exposición de datos sensibles, entidades XML externas, control de acceso roto, configuración de seguridad incorrecta, XSS, deserialización insegura, componentes con vulnerabilidades conocidas, y logging insuficiente."
+        },
+        {
+          "question": "¿También corrigen las vulnerabilidades que encuentran?",
+          "answer": "Sí. La auditoría incluye remediación de vulnerabilidades críticas. Recibes el reporte ejecutivo independientemente de si contratas la remediación completa. Para issues no críticos, el reporte incluye pasos detallados que tu equipo puede seguir."
+        },
+        {
+          "question": "¿Cada cuánto debo auditar mi aplicación?",
+          "answer": "Como mínimo, después de cada release mayor o cambio de infraestructura. Para aplicaciones que manejan datos sensibles (financieros, salud, personales), auditorías trimestrales son recomendables."
+        }
+      ],
+      "relatedTitle": "OTROS SERVICIOS",
+      "finalCta": "¿LISTO PARA PROTEGER TU EMPRESA?",
+      "cta": "Recibe tu propuesta en 48h"
+    },
+    "aws": {
+      "name": "INFRAESTRUCTURA AWS PARA EMPRESAS",
+      "tagline": "Tu Oficina en la Nube",
+      "heroDescription": "Si tu servidor falla, recuperas todo en minutos, no días. VPN segura, usuarios centralizados con Active Directory, DNS confiable, y disaster recovery completo — todo configurado y documentado para que tu equipo lo opere sin necesitar un equipo DevOps permanente. Para empresas en México y remoto que necesitan infraestructura cloud profesional sin la complejidad.",
+      "problemTitle": "EL COSTO DE INFRAESTRUCTURA MAL CONFIGURADA",
+      "problemDescription": "Montar infraestructura cloud internamente te cuesta 3x más en tiempo y errores. Sin disaster recovery, un fallo te deja fuera por días. Sin VPN, tus empleados remotos acceden a sistemas críticos por conexiones inseguras. Sin Active Directory centralizado, cada nuevo empleado significa configurar accesos manualmente en cada sistema. Y sin documentación, cuando el único que sabe cómo funciona todo se va, el conocimiento se pierde. La infraestructura cloud no tiene que ser compleja — necesita estar bien configurada desde el inicio.",
+      "solutionTitle": "LA SOLUCIÓN: AWS CONFIGURADO Y DOCUMENTADO",
+      "solutionDescription": "Configuro la infraestructura AWS que tu empresa necesita: VPN para acceso seguro remoto, Active Directory para gestión centralizada de usuarios, DNS confiable, y disaster recovery que te permite recuperar todo en minutos. Todo queda documentado paso a paso para que tu equipo actual lo opere y mantenga sin depender de un consultor externo permanente.",
+      "includes": [
+        "Infraestructura AWS completamente configurada",
+        "VPN para acceso seguro remoto",
+        "Active Directory centralizado",
+        "DNS y networking configurados",
+        "Disaster recovery con backups automatizados",
+        "Documentación completa + accesos + runbooks",
+        "Soporte de transición para tu equipo"
+      ],
+      "includesTitle": "QUÉ INCLUYE EL SERVICIO",
+      "deliveryTime": "1–2 semanas",
+      "hook": "Sin suscripción mensual de DevOps. Tu equipo lo mantiene con la documentación incluida.",
+      "faqTitle": "PREGUNTAS SOBRE INFRAESTRUCTURA AWS",
+      "faqs": [
+        {
+          "question": "¿Cuánto tiempo toma configurar infraestructura AWS?",
+          "answer": "1–2 semanas para configuraciones estándar incluyendo VPN, Active Directory, DNS y disaster recovery. El timeline depende del número de servicios y usuarios a migrar."
+        },
+        {
+          "question": "¿Necesito un equipo DevOps para mantener la infraestructura?",
+          "answer": "No. Cada proyecto incluye documentación completa con guías paso a paso que tu equipo puede seguir. La infraestructura está diseñada para ser mantenida por tu equipo de IT existente sin conocimiento DevOps especializado."
+        },
+        {
+          "question": "¿Qué pasa si nuestro servidor se cae?",
+          "answer": "Con disaster recovery configurado, recuperas todo en minutos, no días. Backups automatizados, procedimientos de failover, y runbooks de recuperación son parte del entregable."
+        },
+        {
+          "question": "¿Hay un costo mensual después de la configuración inicial?",
+          "answer": "No hay honorarios mensuales hacia mí. Solo pagas los costos de uso de AWS directamente. La configuración única incluye setup, documentación y soporte de transición."
+        }
+      ],
+      "relatedTitle": "OTROS SERVICIOS",
+      "finalCta": "¿LISTO PARA TU INFRAESTRUCTURA CLOUD?",
+      "cta": "Recibe tu propuesta en 48h"
+    }
   },
   "footer": {
     "quickLinks": "Enlaces rápidos",

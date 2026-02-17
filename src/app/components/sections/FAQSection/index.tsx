@@ -32,27 +32,29 @@ export default function FAQSection() {
         {items.map((item, index) => (
           <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
             <div className="border border-border-subtle bg-bg-secondary/30">
-              <button
-                type="button"
-                id={`faq-question-${index}`}
-                onClick={() => toggle(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-bg-secondary/50 transition-colors duration-200"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <Typography as="span" className="text-fg-primary font-semibold pr-4">
-                  {item.question}
-                </Typography>
-                <svg
-                  className={`w-5 h-5 text-accent-500 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+              <h3>
+                <button
+                  type="button"
+                  id={`faq-question-${index}`}
+                  onClick={() => toggle(index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-bg-secondary/50 transition-colors duration-200"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  <span className="text-fg-primary font-semibold pr-4">
+                    {item.question}
+                  </span>
+                  <svg
+                    className={`w-5 h-5 text-accent-500 flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </h3>
               <div
                 id={`faq-answer-${index}`}
                 role="region"

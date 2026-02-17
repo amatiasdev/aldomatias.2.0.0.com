@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     default: 'Aldo Matias | Automatización n8n, Seguridad & AWS',
     template: '%s | Aldo Matias'
   },
-  description: 'Automatizo operaciones con n8n, audito seguridad (OWASP) y configuro infraestructura AWS para empresas. Resultados en 1–2 semanas. Ex-BBVA Bank. Propuesta en 48h.',
+  description: 'Automatizo operaciones con n8n, audito seguridad (OWASP) y configuro infraestructura AWS para empresas en Mexico y remoto. Resultados en 1–2 semanas. Ex-BBVA Bank. Propuesta en 48h.',
   keywords: [
     // Services
     'n8n automation',

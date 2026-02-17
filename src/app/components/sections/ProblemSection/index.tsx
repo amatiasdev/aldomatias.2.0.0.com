@@ -49,7 +49,7 @@ export default function ProblemSection() {
               <div className="mb-4">
                 {icons[index]}
               </div>
-              <Typography as="h3" variant="h4" className="text-fg-primary font-bold mb-3">
+              <Typography as="h3" variant="h3" className="text-fg-primary font-bold mb-3 text-xl md:text-2xl">
                 {item.title}
               </Typography>
               <Typography as="p" className="text-fg-tertiary leading-relaxed">

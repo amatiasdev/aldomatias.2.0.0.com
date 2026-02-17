@@ -1,6 +1,7 @@
 import HeroSection from '@/app/components/sections/HeroSection';
 import ProblemSection from '@/app/components/sections/ProblemSection';
 import CredibilitySection from '@/app/components/sections/CredibilitySection';
+import IndustriesSection from '@/app/components/sections/IndustriesSection';
 import ServicesSection from '@/app/components/sections/ServicesSection';
 import ProcessSection from '@/app/components/sections/ProcessSection';
 import FAQSection from '@/app/components/sections/FAQSection';
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <ProblemSection />
       <CredibilitySection />
+      <IndustriesSection />
       <ServicesSection />
       <ProcessSection />
       <FAQSection />

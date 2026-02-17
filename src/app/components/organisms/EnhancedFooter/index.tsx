@@ -33,9 +33,9 @@ export default function EnhancedFooter({
           <FooterColumn
             title={t('footer.servicesTitle') as string}
             links={[
-              { label: t('footer.automationLink') as string, href: '#services' },
-              { label: t('footer.securityLink') as string, href: '#services' },
-              { label: t('footer.awsLink') as string, href: '#services' },
+              { label: t('footer.automationLink') as string, href: '/servicios/automatizacion-n8n' },
+              { label: t('footer.securityLink') as string, href: '/servicios/auditoria-seguridad' },
+              { label: t('footer.awsLink') as string, href: '/servicios/infraestructura-aws' },
             ]}
           />
 

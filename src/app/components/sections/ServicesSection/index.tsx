@@ -1,11 +1,14 @@
 "use client";
 
+import Link from 'next/link';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
 import Badge from '@/app/components/atoms/Badge';
 import SectionWrapper from '@/app/components/templates/SectionWrapper';
 import AnimatedSection from '@/app/components/templates/AnimatedSection';
 import { useTranslation } from '@/contexts/LanguageContext';
+
+const SERVICE_SLUGS = ['automatizacion-n8n', 'auditoria-seguridad', 'infraestructura-aws'];
 
 interface ServiceItem {
   name: string;
@@ -80,9 +83,17 @@ export default function ServicesSection() {
                 <Typography as="p" className="text-sm text-accent-500/80 italic">
                   {service.hook}
                 </Typography>
-                <Button variant="ghost" size="sm" href="#contact" className="mt-4">
-                  {t('services.cta') as string}
-                </Button>
+                <div className="flex items-center gap-4 mt-4">
+                  <Button variant="ghost" size="sm" href="#contact">
+                    {t('services.cta') as string}
+                  </Button>
+                  <Link
+                    href={`/servicios/${SERVICE_SLUGS[index]}`}
+                    className="text-sm text-fg-tertiary hover:text-accent-500 transition-colors"
+                  >
+                    Ver detalles →
+                  </Link>
+                </div>
               </div>
             </div>
           </AnimatedSection>

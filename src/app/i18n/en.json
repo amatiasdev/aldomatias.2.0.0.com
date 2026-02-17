@@ -211,8 +211,187 @@
       {
         "question": "How do you protect my company's data?",
         "answer": "I sign NDAs before each project. I use encrypted connections, private repositories, and follow the security best practices I apply in OWASP audits. Your information is never shared with third parties."
+      },
+      {
+        "question": "How much does an OWASP security audit cost?",
+        "answer": "Cost depends on the scope: number of applications, APIs, and cloud configurations to review. Submit your project details and you'll receive a personalized proposal with exact pricing in 48 hours. No commitment required."
+      },
+      {
+        "question": "What is n8n and why use it for automation?",
+        "answer": "n8n is an open-source automation platform that connects your tools (WhatsApp, CRM, email, databases) with visual workflows. Unlike Zapier or Make, n8n can be self-hosted, giving you full control over your data with no execution limits."
+      },
+      {
+        "question": "Can I automate WhatsApp with n8n?",
+        "answer": "Yes. n8n integrates with the WhatsApp Business API to automate replies, send notifications, sync conversations with your CRM, and generate automatic reports from chat data. It's one of the most requested automations."
+      },
+      {
+        "question": "What's the difference between hiring a freelancer and an agency?",
+        "answer": "With a freelancer, you talk directly to the person doing the work. No middlemen, no agency overhead, faster response times, and significantly lower costs. For well-scoped projects (automation, audits, infrastructure), a specialized freelancer delivers results faster than a generalist agency."
+      },
+      {
+        "question": "What countries do you work with?",
+        "answer": "I work 100% remotely with clients in Mexico, LATAM, Europe, and the United States. I adapt to your timezone for meetings and deliverables. Most of my clients are in Mexico and LATAM, but I take on projects from anywhere in the world."
       }
     ]
+  },
+  "industries": {
+    "title": "INDUSTRIES I SERVE",
+    "subtitle": "Experience applied to your industry",
+    "items": [
+      {
+        "name": "Fintech & Banking",
+        "description": "Regulatory report automation, PCI-DSS security audits, cloud infrastructure with financial compliance."
+      },
+      {
+        "name": "SaaS & Startups",
+        "description": "Automated onboarding workflows, proactive security alerts, scalable infrastructure from day one."
+      },
+      {
+        "name": "E-commerce",
+        "description": "Cross-platform inventory sync, WhatsApp customer notifications, fraud protection and vulnerability scanning."
+      },
+      {
+        "name": "Professional Services",
+        "description": "Automated CRM, client report generation, sensitive data protection and compliance."
+      },
+      {
+        "name": "Manufacturing & Logistics",
+        "description": "Supply chain automation, IoT infrastructure monitoring, industrial system security."
+      },
+      {
+        "name": "Education",
+        "description": "Student communication automation, personal data protection, scalable cloud platforms."
+      }
+    ]
+  },
+  "servicePages": {
+    "n8n": {
+      "name": "N8N AUTOMATION FOR BUSINESSES",
+      "tagline": "Operations on Autopilot",
+      "heroDescription": "I eliminate hours of manual work every week with n8n automation workflows that run 24/7. Automatic WhatsApp replies, CRM sync without intervention, self-generating reports, and smart notifications that keep your team informed effortlessly. Designed for businesses in Mexico and remote teams that want to scale without increasing headcount.",
+      "problemTitle": "THE PROBLEM WITH MANUAL PROCESSES",
+      "problemDescription": "Your team spends hours every week copying data between systems, sending repetitive messages, generating reports manually, and following up on tasks that could be automated. Every new client means more manual work. Every manual error means time lost correcting. And every undocumented process means that when someone leaves, the knowledge is lost. Automation isn't a luxury — it's the difference between a team that grows and one that stalls.",
+      "solutionTitle": "THE SOLUTION: N8N WORKFLOWS THAT WORK FOR YOU",
+      "solutionDescription": "I design and implement automation workflows with n8n that connect your existing tools: WhatsApp Business, CRM (HubSpot, Salesforce, Pipedrive), Google Sheets, databases, email, Slack, and 400+ integrations. Each workflow is configured, tested, and documented so your team understands it and can modify it if needed. No code, no permanent dependency on a developer.",
+      "includes": [
+        "n8n workflows configured and tested in your environment",
+        "Integration with your existing tools (WhatsApp, CRM, email)",
+        "Step-by-step technical documentation with screenshots",
+        "Error notifications configured",
+        "1 week post-delivery support included",
+        "Basic training for your team"
+      ],
+      "includesTitle": "WHAT'S INCLUDED",
+      "deliveryTime": "3\u20137 days",
+      "hook": "We start with 1 workflow. If it works, we scale.",
+      "faqTitle": "N8N AUTOMATION FAQ",
+      "faqs": [
+        {
+          "question": "How long does it take to implement an n8n workflow?",
+          "answer": "3\u20137 days for standard workflows like WhatsApp replies or CRM sync. Complex projects with multiple integrations take up to 2 weeks. You receive progress updates every 3 days."
+        },
+        {
+          "question": "Do I need technical knowledge to maintain the automation?",
+          "answer": "No. Every deliverable includes step-by-step documentation with screenshots. Plus, you get 1 week of support where I answer questions and make any adjustments you need."
+        },
+        {
+          "question": "Can I automate WhatsApp with n8n?",
+          "answer": "Yes. n8n integrates with the WhatsApp Business API to automate replies, send notifications, sync conversations with your CRM, and generate automatic reports from chat data."
+        },
+        {
+          "question": "What happens if a workflow breaks after delivery?",
+          "answer": "Every project includes 1 week of post-delivery support. I also set up error notifications so you know immediately if something needs attention. The documentation covers common troubleshooting steps."
+        }
+      ],
+      "relatedTitle": "OTHER SERVICES",
+      "finalCta": "READY TO AUTOMATE YOUR PROCESSES?",
+      "cta": "Get your proposal in 48h"
+    },
+    "security": {
+      "name": "OWASP SECURITY AUDIT",
+      "tagline": "Express Shield",
+      "heroDescription": "I find the vulnerabilities that get companies hacked before someone else does. Complete OWASP Top 10 review, cloud configuration analysis, and executive report with priority and concrete action plan. For businesses in Mexico and remote teams handling sensitive data who need certainty they're protected.",
+      "problemTitle": "THE RISK OF NOT KNOWING YOUR VULNERABILITIES",
+      "problemDescription": "A single data breach can cost months of work, client trust, and in some cases regulatory fines. The problem is most companies don't know what vulnerabilities they have until it's too late. Cloud configurations accumulate without review, code dependencies go outdated, and access controls get looser with every new employee. You don't need paranoia \u2014 you need visibility. A professional audit gives you exactly that: a clear risk map with priorities and concrete actions.",
+      "solutionTitle": "THE SOLUTION: PROFESSIONAL OWASP AUDIT",
+      "solutionDescription": "I execute a complete review based on OWASP Top 10, the industry standard for web application security. I review your application, APIs, cloud configuration, and access controls. The result is an executive PDF report with each vulnerability classified by severity, technical evidence, and exact remediation steps your team can follow.",
+      "includes": [
+        "Complete OWASP Top 10 analysis",
+        "Cloud configuration review (AWS, Azure, GCP)",
+        "Executive PDF report with technical evidence",
+        "Vulnerability classification by severity",
+        "Prioritized remediation plan",
+        "Critical vulnerability remediation included"
+      ],
+      "includesTitle": "WHAT'S INCLUDED",
+      "deliveryTime": "5\u201310 days",
+      "hook": "You get the report even if you don't hire the full remediation.",
+      "faqTitle": "SECURITY AUDIT FAQ",
+      "faqs": [
+        {
+          "question": "How much does an OWASP security audit cost?",
+          "answer": "Cost depends on the scope: number of applications, APIs, and cloud configurations to review. Submit your project details and you'll receive a personalized proposal with exact pricing in 48 hours. No commitment required."
+        },
+        {
+          "question": "What does an OWASP Top 10 audit include?",
+          "answer": "A complete review of the 10 most critical web application security risks: injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, XSS, insecure deserialization, components with known vulnerabilities, and insufficient logging."
+        },
+        {
+          "question": "Do you also fix the vulnerabilities you find?",
+          "answer": "Yes. The audit includes remediation of critical vulnerabilities. You receive the executive report regardless of whether you hire the full remediation. For non-critical issues, the report includes detailed steps your team can follow."
+        },
+        {
+          "question": "How often should I audit my application?",
+          "answer": "At minimum, after every major release or infrastructure change. For applications handling sensitive data (financial, healthcare, personal), quarterly audits are recommended."
+        }
+      ],
+      "relatedTitle": "OTHER SERVICES",
+      "finalCta": "READY TO PROTECT YOUR BUSINESS?",
+      "cta": "Get your proposal in 48h"
+    },
+    "aws": {
+      "name": "AWS INFRASTRUCTURE FOR BUSINESSES",
+      "tagline": "Your Office in the Cloud",
+      "heroDescription": "If your server fails, you recover everything in minutes, not days. Secure VPN, centralized users with Active Directory, reliable DNS, and complete disaster recovery \u2014 all configured and documented so your team runs it without needing a permanent DevOps team. For businesses in Mexico and remote teams that need professional cloud infrastructure without the complexity.",
+      "problemTitle": "THE COST OF MISCONFIGURED INFRASTRUCTURE",
+      "problemDescription": "Setting up cloud infrastructure internally costs 3x more in time and mistakes. Without disaster recovery, one failure takes you offline for days. Without VPN, your remote employees access critical systems over insecure connections. Without centralized Active Directory, every new employee means manually configuring access across every system. And without documentation, when the only person who knows how everything works leaves, the knowledge is lost. Cloud infrastructure doesn't have to be complex \u2014 it needs to be properly configured from the start.",
+      "solutionTitle": "THE SOLUTION: AWS CONFIGURED AND DOCUMENTED",
+      "solutionDescription": "I configure the AWS infrastructure your business needs: VPN for secure remote access, Active Directory for centralized user management, reliable DNS, and disaster recovery that lets you recover everything in minutes. Everything is documented step-by-step so your current team can operate and maintain it without depending on an external consultant permanently.",
+      "includes": [
+        "Fully configured AWS infrastructure",
+        "VPN for secure remote access",
+        "Centralized Active Directory",
+        "DNS and networking configured",
+        "Disaster recovery with automated backups",
+        "Complete documentation + access + runbooks",
+        "Transition support for your team"
+      ],
+      "includesTitle": "WHAT'S INCLUDED",
+      "deliveryTime": "1\u20132 weeks",
+      "hook": "No monthly DevOps subscription. Your team maintains it with the included documentation.",
+      "faqTitle": "AWS INFRASTRUCTURE FAQ",
+      "faqs": [
+        {
+          "question": "How long does it take to set up AWS infrastructure?",
+          "answer": "1\u20132 weeks for standard configurations including VPN, Active Directory, DNS, and disaster recovery. The timeline depends on the number of services and users to migrate."
+        },
+        {
+          "question": "Do I need a DevOps team to maintain the infrastructure?",
+          "answer": "No. Every project includes complete documentation with step-by-step guides your team can follow. The infrastructure is designed to be maintained by your existing IT staff without specialized DevOps knowledge."
+        },
+        {
+          "question": "What happens if our server goes down?",
+          "answer": "With disaster recovery configured, you recover everything in minutes, not days. Automated backups, failover procedures, and recovery runbooks are all part of the deliverable."
+        },
+        {
+          "question": "Is there an ongoing cost after the initial setup?",
+          "answer": "No monthly fees to me. You only pay AWS usage costs directly. The one-time setup includes configuration, documentation, and transition support."
+        }
+      ],
+      "relatedTitle": "OTHER SERVICES",
+      "finalCta": "READY FOR YOUR CLOUD INFRASTRUCTURE?",
+      "cta": "Get your proposal in 48h"
+    }
   },
   "footer": {
     "quickLinks": "Quick Links",

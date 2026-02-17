@@ -18,12 +18,12 @@ export default function NavMenu({
   const { t } = useTranslation();
 
   const items = [
-    { label: t('nav.home') as string, href: '#home' },
-    { label: t('nav.credibility') as string, href: '#credibility' },
-    { label: t('nav.services') as string, href: '#services' },
-    { label: t('nav.process') as string, href: '#process' },
-    { label: t('nav.faq') as string, href: '#faq' },
-    { label: t('nav.contact') as string, href: '#contact' },
+    { label: t('nav.home') as string, href: '/#home' },
+    { label: t('nav.credibility') as string, href: '/#credibility' },
+    { label: t('nav.services') as string, href: '/#services' },
+    { label: t('nav.process') as string, href: '/#process' },
+    { label: t('nav.faq') as string, href: '/#faq' },
+    { label: t('nav.contact') as string, href: '/#contact' },
   ];
 
   const activeSection = useActiveSection(SECTION_IDS);
@@ -31,9 +31,8 @@ export default function NavMenu({
   return (
     <nav className={`flex items-center gap-8 ${className}`} role="navigation">
       {items.map((item) => {
-        const isActive = item.href.startsWith('#')
-          ? activeSection === item.href.slice(1)
-          : false;
+        const hash = item.href.includes('#') ? item.href.split('#')[1] : '';
+        const isActive = hash ? activeSection === hash : false;
 
         return (
           <NavLink
