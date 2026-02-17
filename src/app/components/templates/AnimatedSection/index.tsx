@@ -1,63 +1,54 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
+import { useRef, useEffect } from 'react';
 import { AnimatedSectionProps } from '@/app/types/components';
-import { fadeInUp, slideInLeft, slideInRight, scaleIn, fadeIn } from '@/app/constants/animations';
+
+// Single shared IntersectionObserver for all AnimatedSection instances on the page.
+// Replaces per-instance observers + MediaQueryList listeners + useState.
+let sharedObserver: IntersectionObserver | null = null;
+
+function getSharedObserver(): IntersectionObserver {
+  if (!sharedObserver) {
+    sharedObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated-visible');
+            sharedObserver?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+  }
+  return sharedObserver;
+}
 
 export default function AnimatedSection({
   children,
   animation = 'fadeInUp',
   delay = 0,
-  threshold = 0.1,
-  stagger = false,
-  respectReducedMotion = true,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const { hasIntersected } = useIntersectionObserver(ref, {
-    threshold,
-    freezeOnceVisible: true,
-  });
-
-  const animations = {
-    fadeIn,
-    fadeInUp,
-    slideLeft: slideInLeft,
-    slideRight: slideInRight,
-    scaleIn,
-  } as const;
-
-  const selectedAnimation = animations[animation] || fadeInUp;
-
-  // Check for reduced motion preference (client-side only to avoid hydration mismatch)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (respectReducedMotion) {
-      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-      setPrefersReducedMotion(mq.matches);
-
-      // Listen for changes
-      const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-      mq.addEventListener('change', handler);
-      return () => mq.removeEventListener('change', handler);
+    const el = ref.current;
+    const observer = getSharedObserver();
+    if (el) {
+      observer.observe(el);
     }
-  }, [respectReducedMotion]);
-
-  if (prefersReducedMotion) {
-    return <div ref={ref}>{children}</div>;
-  }
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial="initial"
-      animate={hasIntersected ? "animate" : "initial"}
-      variants={stagger ? { animate: { transition: { staggerChildren: 0.1 } } } : selectedAnimation}
-      transition={{ delay }}
+      className={`animated-section animated-section--${animation}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

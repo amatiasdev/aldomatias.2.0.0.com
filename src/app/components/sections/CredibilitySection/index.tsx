@@ -49,11 +49,11 @@ export default function CredibilitySection() {
             {t('credibility.companiesTitle') as string}
           </Typography>
           <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-60">
-            <Image src="/bbva-logo.png" alt="BBVA Bank" width={48} height={48} className="rounded" />
-            <Image src="/IT-KEEPER-logo.png" alt="IT-KEEPER" width={48} height={48} className="rounded" />
-            <Image src="/AHEA-logo.png" alt="AHEA University" width={48} height={48} className="rounded" />
-            <Image src="/ksh.png" alt="Kristal Software House" width={48} height={48} className="rounded" />
-            <Image src="/admon-oaxaca.jpg" alt="Gobierno de Oaxaca" width={48} height={48} className="rounded" />
+            <Image src="/bbva-logo.png" alt="BBVA Bank" width={48} height={48} className="rounded" sizes="48px" />
+            <Image src="/IT-KEEPER-logo.png" alt="IT-KEEPER" width={48} height={48} className="rounded" sizes="48px" />
+            <Image src="/AHEA-logo.png" alt="AHEA University" width={48} height={48} className="rounded" sizes="48px" />
+            <Image src="/ksh.png" alt="Kristal Software House" width={48} height={48} className="rounded" sizes="48px" />
+            <Image src="/admon-oaxaca.jpg" alt="Gobierno de Oaxaca" width={48} height={48} className="rounded" sizes="48px" />
           </div>
         </div>
       </AnimatedSection>
@@ -68,6 +68,7 @@ export default function CredibilitySection() {
               width={80}
               height={80}
               className="rounded"
+              sizes="80px"
             />
             <Typography as="p" className="text-fg-secondary text-base md:text-lg">
               {t('credibility.experience') as string}
@@ -90,10 +91,11 @@ export default function CredibilitySection() {
         <div className="max-w-2xl mx-auto mb-10 border border-border-subtle bg-bg-secondary/30 overflow-hidden">
           <Image
             src="/whatsappsummary-dashboard.png"
-            alt="WhatsApp Management Platform"
+            alt="WhatsApp Executive Summary — AI-powered executive intelligence platform"
             width={800}
             height={400}
             className="w-full"
+            sizes="(max-width: 768px) 100vw, 672px"
           />
           <div className="p-6">
             <Typography as="p" className="text-fg-primary font-semibold mb-2">

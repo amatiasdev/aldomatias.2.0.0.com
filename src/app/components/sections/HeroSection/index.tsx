@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Typography from '@/app/components/atoms/Typography';
 import Button from '@/app/components/atoms/Button';
 import { useTranslation } from '@/contexts/LanguageContext';
@@ -15,16 +14,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-bg-primary via-bg-primary to-accent-500/10" />
 
       {/* Subtle animated accent */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-tr from-accent-500/5 via-transparent to-accent-500/5"
-        animate={{
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+      <div
+        className="absolute inset-0 bg-gradient-to-tr from-accent-500/5 via-transparent to-accent-500/5 animate-bg-pulse"
       />
 
       {/* Gradient fade to black at bottom */}
@@ -32,12 +23,8 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 pt-20 max-w-5xl mx-auto">
-        {/* Circular photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        {/* Circular photo - CSS animation for instant LCP */}
+        <div className="animate-hero-photo">
           <Image
             src="/aldo-matias.jpg"
             alt="Aldo Matias"
@@ -45,19 +32,16 @@ export default function HeroSection() {
             height={120}
             className="rounded-full mx-auto mb-6 border-2 border-accent-500/30"
             priority
+            sizes="120px"
           />
-        </motion.div>
+        </div>
 
         {/* Name - eyebrow label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <div className="animate-hero-stagger-1">
           <Typography as="p" className="text-sm sm:text-base font-medium uppercase tracking-[0.2em] text-fg-tertiary mb-6">
             {t('hero.name') as string}
           </Typography>
-        </motion.div>
+        </div>
 
         {/* Headline - Value proposition (dominant) */}
         <h1
@@ -67,24 +51,16 @@ export default function HeroSection() {
         </h1>
 
         {/* Headline support line */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-        >
+        <div className="animate-hero-stagger-2">
           <Typography as="p" className="text-fg-secondary text-lg md:text-xl mb-8 max-w-3xl mx-auto">
             {t('hero.headlineSupport') as string}
           </Typography>
-        </motion.div>
+        </div>
 
         {/* Proof line with BBVA logo */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
+        <div className="animate-hero-stagger-3">
           <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
-            <Image src="/bbva-logo.png" alt="BBVA Bank" width={28} height={28} className="rounded opacity-70" />
+            <Image src="/bbva-logo.png" alt="BBVA Bank" width={48} height={48} className="rounded opacity-70 w-7 h-7" sizes="48px" />
             <Typography as="p" className="text-fg-secondary font-medium text-base md:text-lg">
               {t('hero.proofBadge') as string}
             </Typography>
@@ -93,15 +69,10 @@ export default function HeroSection() {
               {t('hero.proofMetrics') as string}
             </Typography>
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="flex flex-col items-center"
-        >
+        <div className="animate-hero-stagger-4 flex flex-col items-center">
           <Button
             variant="primary"
             size="lg"
@@ -121,7 +92,7 @@ export default function HeroSection() {
           >
             {t('hero.ctaSecondary') as string} ↓
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

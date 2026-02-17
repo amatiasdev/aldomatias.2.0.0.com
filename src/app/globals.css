@@ -121,40 +121,6 @@ html.transitioning *:after {
   }
 }
 
-/* CSS for the toggle switch */
-.toggle-checkbox {
-  display: none;
-}
-
-.toggle-slider {
-  width: 34px;
-  height: 20px;
-  background-color: #ccc;
-  border-radius: 34px;
-  position: relative;
-  transition: 0.4s;
-}
-
-.toggle-slider::before {
-  content: "";
-  position: absolute;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  background-color: white;
-  transition: 0.4s;
-  left: 4px;
-  top: 4px;
-}
-
-.toggle-checkbox:checked + .toggle-slider {
-  background-color: #4CAF50;
-}
-
-.toggle-checkbox:checked + .toggle-slider::before {
-  transform: translateX(14px);
-}
-
 .navbar {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -163,9 +129,6 @@ html.transitioning *:after {
   border-width: 2px;
   border-color: white;
   border-top-color: transparent;
-}
-.bg-green-500 {
-  background-color: var(--secondary-background);
 }
 
 /* Hide scrollbar but maintain functionality */
@@ -200,3 +163,78 @@ html.transitioning *:after {
   }
 }
 
+/* Hero CSS animations - replaces framer-motion for instant LCP */
+@keyframes hero-photo-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-hero-photo {
+  animation: hero-photo-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes bg-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.animate-bg-pulse {
+  animation: bg-pulse 8s ease-in-out infinite;
+}
+
+@keyframes hero-stagger {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-hero-stagger-1 { animation: hero-stagger 0.5s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-hero-stagger-2 { animation: hero-stagger 0.5s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-hero-stagger-3 { animation: hero-stagger 0.5s 0.25s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-hero-stagger-4 { animation: hero-stagger 0.5s 0.35s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-photo,
+  .animate-bg-pulse,
+  [class*="animate-hero-stagger"] {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll animations - shared IntersectionObserver with CSS transitions */
+.animated-section {
+  opacity: 0;
+}
+.animated-section--fadeInUp {
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animated-section--fadeIn {
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animated-section--slideLeft {
+  transform: translateX(-40px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animated-section--slideRight {
+  transform: translateX(40px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animated-section--scaleIn {
+  transform: scale(0.9);
+  transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.animated-section.animated-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

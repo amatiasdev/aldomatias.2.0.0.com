@@ -10,7 +10,6 @@ import {
   type ReactNode,
 } from "react";
 import es from "@/app/i18n/es.json";
-import en from "@/app/i18n/en.json";
 
 /**
  * Supported locales for the application.
@@ -19,12 +18,6 @@ export type Locale = "es" | "en";
 
 const STORAGE_KEY = "lang";
 const DEFAULT_LOCALE: Locale = "es";
-
-/**
- * Translation dictionaries indexed by locale.
- * Each dictionary is a deeply nested record of strings or arrays.
- */
-const dictionaries: Record<Locale, Record<string, unknown>> = { es, en };
 
 /**
  * Traverse a nested object using a dot-notation key path.
@@ -132,13 +125,27 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
   const [mounted, setMounted] = useState(false);
+  const [dictionaries, setDictionaries] = useState<Record<Locale, Record<string, unknown>>>({
+    es,
+    en: es, // Fallback to Spanish until English dictionary loads
+  });
+
+  // Load English dictionary on demand
+  const loadEnglish = useCallback(() => {
+    import("@/app/i18n/en.json").then((mod) => {
+      setDictionaries((prev) => ({ ...prev, en: mod.default }));
+    });
+  }, []);
 
   // Hydrate locale from storage / browser detection after mount
   useEffect(() => {
-    setMounted(true);
     const initial = getInitialLocale();
     setLocaleState(initial);
-  }, []);
+    if (initial === "en") {
+      loadEnglish();
+    }
+    setMounted(true);
+  }, [loadEnglish]);
 
   // Sync the `lang` attribute on <html> whenever locale changes
   useEffect(() => {
@@ -148,18 +155,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
+    if (next === "en") {
+      loadEnglish();
+    }
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // Silently handle storage errors
     }
-  }, []);
+  }, [loadEnglish]);
 
   const t = useCallback(
     (key: string): unknown => {
       return getNestedValue(dictionaries[locale], key);
     },
-    [locale],
+    [locale, dictionaries],
   );
 
   const value = useMemo(
