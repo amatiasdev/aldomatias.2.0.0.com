@@ -45,7 +45,7 @@ export default function EnhancedFooter({
               <SocialLinks orientation="vertical" showLabels />
               <a
                 href="mailto:contacto@aldomatias.com"
-                className="block text-sm text-fg-tertiary hover:text-accent-500 transition-colors duration-300"
+                className="block text-sm text-fg-tertiary hover:text-accent-500"
               >
                 contacto@aldomatias.com
               </a>
@@ -61,7 +61,7 @@ export default function EnhancedFooter({
             </p>
             <a
               href="mailto:contacto@aldomatias.com"
-              className="text-sm text-fg-quaternary text-center hover:text-accent-500 transition-colors duration-300"
+              className="text-sm text-fg-quaternary text-center hover:text-accent-500"
             >
               contacto@aldomatias.com
             </a>

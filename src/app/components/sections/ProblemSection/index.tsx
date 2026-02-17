@@ -45,7 +45,7 @@ export default function ProblemSection() {
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {items.map((item, index) => (
           <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.15}>
-            <div className="p-6 md:p-8 border border-border-subtle bg-bg-secondary/50 hover:border-accent-500/30 transition-colors duration-300">
+            <div className="p-6 md:p-8 border border-border-subtle bg-bg-secondary/50 hover:border-accent-500/30">
               <div className="mb-4">
                 {icons[index]}
               </div>

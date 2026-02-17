@@ -55,7 +55,7 @@ export default function Newsletter({
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             disabled={status === 'loading' || status === 'success'}
-            className="w-full px-4 py-3 bg-bg-tertiary text-fg-primary text-sm border-2 border-border-default focus:border-accent-500 rounded-sm transition-colors duration-300 outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-bg-tertiary text-fg-primary text-sm border-2 border-border-default focus:border-accent-500 rounded-sm outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Email address"
             required
           />

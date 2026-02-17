@@ -38,7 +38,7 @@ export default function FooterColumn({
               {link.onClick ? (
                 <button
                   onClick={link.onClick}
-                  className="text-sm text-fg-tertiary hover:text-accent-500 transition-colors duration-300 text-left"
+                  className="text-sm text-fg-tertiary hover:text-accent-500 text-left"
                 >
                   {link.label}
                 </button>
@@ -47,14 +47,14 @@ export default function FooterColumn({
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-fg-tertiary hover:text-accent-500 transition-colors duration-300"
+                  className="text-sm text-fg-tertiary hover:text-accent-500"
                 >
                   {link.label}
                 </a>
               ) : (
                 <Link
                   href={link.href!}
-                  className="text-sm text-fg-tertiary hover:text-accent-500 transition-colors duration-300"
+                  className="text-sm text-fg-tertiary hover:text-accent-500"
                 >
                   {link.label}
                 </Link>
