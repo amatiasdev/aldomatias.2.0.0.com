@@ -26,6 +26,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
     service: '',
     budget: '',
     message: '',
+    website: '',
   };
 
   const serviceOptions = useMemo(() => {
@@ -281,6 +282,31 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         errorMessage={touched.message ? errors.message : undefined}
         showError={!!touched.message}
       />
+
+      {/* Honeypot field - hidden from humans, filled by bots */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          top: 'auto',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+          opacity: 0,
+        }}
+      >
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          value={values.website as string ?? ''}
+          onChange={(e) => handleChange('website')(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <Button
         type="submit"

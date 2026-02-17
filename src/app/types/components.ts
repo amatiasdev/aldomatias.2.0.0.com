@@ -162,6 +162,7 @@ export interface ContactFormData extends Record<string, unknown> {
   service: string;
   budget?: string;
   message: string;
+  website?: string;
 }
 
 export interface ContactFormProps {

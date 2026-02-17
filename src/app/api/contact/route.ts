@@ -35,9 +35,30 @@ const ContactSchema = z.object({
     .min(10, 'Message must be at least 10 characters')
     .max(5000, 'Message must be less than 5000 characters')
     .trim(),
+  website: z.string().max(200).optional().default(''),
 });
 
 type ContactInput = z.infer<typeof ContactSchema>;
+
+// ===================================================================
+// RATE LIMITING (in-memory, per serverless instance)
+// ===================================================================
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const rateLimitMap = new Map<string, number[]>();
+
+function checkRateLimit(key: string): boolean {
+  const now = Date.now();
+  const timestamps = rateLimitMap.get(key) ?? [];
+  const recent = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT_MAX) {
+    rateLimitMap.set(key, recent);
+    return false;
+  }
+  recent.push(now);
+  rateLimitMap.set(key, recent);
+  return true;
+}
 
 // ===================================================================
 // HELPER FUNCTIONS
@@ -108,7 +129,20 @@ function sanitizeInput(value: string): string {
 export async function POST(request: NextRequest) {
   try {
     // ---------------------------------------------------------------
-    // 1. CSRF PROTECTION - Validate origin
+    // 1. RATE LIMITING - Prevent spam/abuse
+    // ---------------------------------------------------------------
+    const ip = getClientIP(request);
+    const rateLimitKey = ip ?? 'unknown';
+    if (!checkRateLimit(rateLimitKey)) {
+      console.warn('[Contact API] Rate limit exceeded for IP:', rateLimitKey);
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429, headers: { 'Retry-After': '900' } }
+      );
+    }
+
+    // ---------------------------------------------------------------
+    // 2. CSRF PROTECTION - Validate origin
     // ---------------------------------------------------------------
     if (!isValidOrigin(request)) {
       console.warn('[Contact API] Invalid origin detected');
@@ -119,7 +153,7 @@ export async function POST(request: NextRequest) {
     }
 
     // ---------------------------------------------------------------
-    // 2. PARSE REQUEST BODY
+    // 3. PARSE REQUEST BODY
     // ---------------------------------------------------------------
     let body: unknown;
     try {
@@ -132,7 +166,7 @@ export async function POST(request: NextRequest) {
     }
 
     // ---------------------------------------------------------------
-    // 3. VALIDATE SCHEMA with Zod
+    // 4. VALIDATE SCHEMA with Zod
     // ---------------------------------------------------------------
     let validatedData: ContactInput;
     try {
@@ -149,21 +183,27 @@ export async function POST(request: NextRequest) {
     }
 
     // ---------------------------------------------------------------
-    // 4. SANITIZE INPUTS (XSS Protection)
+    // 5. HONEYPOT CHECK - Silent bot rejection
+    // ---------------------------------------------------------------
+    if (validatedData.website && validatedData.website.length > 0) {
+      console.info('[Contact API] Honeypot triggered - bot rejected silently');
+      return NextResponse.json(
+        { message: 'Message sent successfully' },
+        { status: 200 }
+      );
+    }
+
+    // ---------------------------------------------------------------
+    // 6. SANITIZE INPUTS (XSS Protection)
     // ---------------------------------------------------------------
     const sanitizedData = {
       name: sanitizeInput(validatedData.name),
       company: sanitizeInput(validatedData.company),
-      email: validatedData.email, // Email already validated
+      email: sanitizeInput(validatedData.email),
       service: sanitizeInput(validatedData.service),
       budget: validatedData.budget ? sanitizeInput(validatedData.budget) : '',
       message: sanitizeInput(validatedData.message),
     };
-
-    // ---------------------------------------------------------------
-    // 6. GET CLIENT IP
-    // ---------------------------------------------------------------
-    const ip = getClientIP(request);
 
     // ---------------------------------------------------------------
     // 7. INSERT TO SUPABASE
@@ -195,7 +235,7 @@ export async function POST(request: NextRequest) {
     }
 
     // ---------------------------------------------------------------
-    // 8. SUCCESS RESPONSE
+    // 8. SUCCESS
     // ---------------------------------------------------------------
     return NextResponse.json(
       { message: 'Message sent successfully' },
